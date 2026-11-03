@@ -46,7 +46,6 @@
             overflow-x: hidden;
         }
 
-        /* Ambient floating bubbles animation */
         .bubble {
             position: absolute;
             border-radius: 50%;
@@ -59,16 +58,10 @@
         }
 
         @keyframes floatUp {
-            0% {
-                transform: translateY(105vh) scale(0.5) rotate(0deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(105vh) scale(0.5) rotate(0deg); opacity: 0; }
             10% { opacity: 0.6; }
             90% { opacity: 0.6; }
-            100% {
-                transform: translateY(-10vh) scale(1.2) rotate(360deg);
-                opacity: 0;
-            }
+            100% { transform: translateY(-10vh) scale(1.2) rotate(360deg); opacity: 0; }
         }
 
         .glass-card {
@@ -87,19 +80,10 @@
             box-shadow: 0 12px 28px -4px rgba(16, 185, 129, 0.25);
         }
 
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 8px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(15, 23, 42, 0.6);
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #047857;
-            border-radius: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #10b981;
-        }
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #047857; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #10b981; }
 
         .fill-input {
             background: rgba(15, 23, 42, 0.8);
@@ -115,18 +99,7 @@
             border-color: #10b981;
             box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
         }
-        .fill-correct {
-            background: rgba(16, 185, 129, 0.2) !important;
-            border-color: #10b981 !important;
-            color: #6ee7b7 !important;
-        }
-        .fill-incorrect {
-            background: rgba(239, 68, 68, 0.2) !important;
-            border-color: #ef4444 !important;
-            color: #fca5a5 !important;
-        }
 
-        /* Option selection styling */
         .option-btn {
             transition: all 0.2s ease;
         }
@@ -150,11 +123,13 @@
             color: #fca5a5 !important;
         }
 
-        /* SVG diagrams responsiveness */
-        .svg-container {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
+        .img-container {
+            max-width: 480px;
+            margin: 12px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }
     </style>
 </head>
@@ -190,13 +165,11 @@
                 </button>
             </nav>
 
-            <!-- Mobile menu button -->
             <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800">
                 <i class="fa-solid fa-bars text-xl"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 px-4 py-3 space-y-2 bg-slate-900/95">
             <button onclick="showScreen('home-screen'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800 text-sm font-medium">
                 <i class="fa-solid fa-house mr-2 text-emerald-400"></i>Trang Chủ
@@ -215,7 +188,6 @@
 
         <!-- SCREEN 1: HOME SCREEN -->
         <section id="home-screen" class="space-y-10 animate-fade-in">
-            <!-- Hero Banner -->
             <div class="relative rounded-3xl overflow-hidden glass-card p-8 sm:p-12 border border-emerald-500/20 shadow-2xl">
                 <div class="absolute -right-10 -bottom-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
                 <div class="max-w-3xl space-y-6 relative z-10">
@@ -229,14 +201,14 @@
                         </span>
                     </h2>
                     <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
-                        Hệ thống luyện tập & giải chi tiết 100% tài liệu ôn tập Chương I: Trao đổi chất và chuyển hóa năng lượng ở sinh vật. Đầy đủ hình ảnh thực hành, điền từ lý thuyết và trắc nghiệm nâng cao.
+                        Hệ thống luyện tập & giải chi tiết 100% tài liệu ôn tập Chương I: Trao đổi chất và chuyển hóa năng lượng ở sinh vật. Đầy đủ 101 câu trắc nghiệm, hình ảnh thực hành, điền từ lý thuyết và tính năng ĐẢO CÂU HỎI.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-4">
                         <button onclick="startPracticeMode()" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-base shadow-xl shadow-emerald-900/50 hover:scale-105 transition-all flex items-center">
                             <i class="fa-solid fa-play mr-3"></i>Bắt Đầu Ôn Tập Ngay
                         </button>
                         <button onclick="startMockExam()" class="px-8 py-4 rounded-2xl glass-card hover:bg-slate-800/80 text-emerald-300 font-extrabold text-base border border-emerald-500/40 hover:scale-105 transition-all flex items-center">
-                            <i class="fa-solid fa-file-pen mr-3"></i>Thi Thử Đề Tổng Hợp
+                            <i class="fa-solid fa-file-pen mr-3"></i>Thi Thử Đề Tổng Hợp (101 Câu)
                         </button>
                     </div>
                 </div>
@@ -249,16 +221,16 @@
                     <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Chương I Bài Học</div>
                 </div>
                 <div class="glass-card p-5 rounded-2xl border border-slate-800 text-center">
-                    <div class="text-teal-400 text-3xl font-black mb-1">91+</div>
-                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Câu Trắc Nghiệm</div>
+                    <div class="text-teal-400 text-3xl font-black mb-1">101 Câu</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Trắc Nghiệm Đầy Đủ</div>
                 </div>
                 <div class="glass-card p-5 rounded-2xl border border-slate-800 text-center">
                     <div class="text-cyan-400 text-3xl font-black mb-1">100%</div>
-                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Hình Vẽ Chi Tiết</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Hình Thí Nghiệm Đầy Đủ</div>
                 </div>
                 <div class="glass-card p-5 rounded-2xl border border-slate-800 text-center">
-                    <div class="text-emerald-300 text-3xl font-black mb-1">2 Bài</div>
-                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Bảng Điền Từ Điển</div>
+                    <div class="text-emerald-300 text-3xl font-black mb-1">Nút Đảo</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Đảo Câu Hỏi Linh Hoạt</div>
                 </div>
             </div>
 
@@ -306,10 +278,10 @@
                         <div>
                             <div class="flex items-center justify-between mb-4">
                                 <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-950 text-emerald-400 border border-emerald-800">Bài 3</span>
-                                <span class="text-xs text-slate-400 font-medium"><i class="fa-solid fa-image mr-1"></i>18 Câu + Hình Ảnh TH</span>
+                                <span class="text-xs text-slate-400 font-medium"><i class="fa-solid fa-image mr-1"></i>18 Câu + Hình Thí Nghiệm</span>
                             </div>
                             <h4 class="text-lg font-bold text-white mb-2">Thực Hành Trao Đổi Nước & Trồng Cây Thủy Canh/Khí Canh</h4>
-                            <p class="text-sm text-slate-400 line-clamp-3">Thí nghiệm hút nước ở rễ, chuông thủy tinh thoát hơi nước, soi khí khổng 10µm, đổi màu hoa cẩm chướng A-B-C-D...</p>
+                            <p class="text-sm text-slate-400 line-clamp-3">Thí nghiệm hút nước ở rễ, chuông thủy tinh thoát hơi nước, soi khí khổng 10µm, đổi màu hoa cẩm chướng...</p>
                         </div>
                         <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-emerald-400 font-semibold text-sm">
                             <span>Luyện tập ngay</span>
@@ -349,14 +321,14 @@
                         </div>
                     </div>
 
-                    <!-- All In One Mock Exam -->
+                    <!-- Mock Exam -->
                     <div onclick="startMockExam()" class="glass-card glass-card-hover rounded-2xl p-6 cursor-pointer flex flex-col justify-between border border-emerald-500/40 bg-gradient-to-br from-emerald-950/40 to-slate-900">
                         <div>
                             <div class="flex items-center justify-between mb-4">
                                 <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500 text-slate-950 font-black">THI THỬ TỔNG HỢP</span>
-                                <span class="text-xs text-emerald-300 font-bold"><i class="fa-solid fa-file-pen mr-1"></i>Trắc nghiệm chuẩn</span>
+                                <span class="text-xs text-amber-400 font-bold"><i class="fa-solid fa-shuffle mr-1"></i>Đảo 101 Câu</span>
                             </div>
-                            <h4 class="text-lg font-bold text-white mb-2">Đề Thi Giữa Kì I Toàn Bộ Chương I</h4>
+                            <h4 class="text-lg font-bold text-white mb-2">Đề Thi Giữa Kì I Toàn Bộ 101 Câu</h4>
                             <p class="text-sm text-slate-300 line-clamp-3">Xáo trộn ngẫu nhiên tất cả các câu hỏi trắc nghiệm từ Bài 1 đến Bài 6, làm bài và nộp để chấm điểm chi tiết.</p>
                         </div>
                         <div class="mt-6 pt-4 border-t border-emerald-800/80 flex items-center justify-between text-emerald-300 font-bold text-sm">
@@ -371,7 +343,6 @@
 
         <!-- SCREEN 2: PRACTICE MODE SELECTOR & DISPLAY -->
         <section id="practice-screen" class="hidden space-y-6">
-            <!-- Header bar for practice -->
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 glass-card p-6 rounded-2xl border border-slate-800">
                 <div>
                     <span id="practice-lesson-tag" class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800 uppercase">
@@ -380,6 +351,9 @@
                     <h2 id="practice-title" class="text-2xl font-black text-white mt-2">Tên bài học</h2>
                 </div>
                 <div class="flex flex-wrap gap-2">
+                    <button id="shuffle-practice-btn" onclick="shuffleCurrentPractice()" class="px-4 py-2 rounded-xl text-sm font-bold bg-amber-600 hover:bg-amber-500 text-white transition-all shadow-lg shadow-amber-900/30">
+                        <i class="fa-solid fa-shuffle mr-2"></i>Đảo Câu Hỏi
+                    </button>
                     <button id="tab-theory-btn" onclick="switchPracticeTab('theory')" class="px-4 py-2 rounded-xl text-sm font-bold bg-emerald-600 text-white transition-all hidden">
                         <i class="fa-solid fa-book mr-2"></i>Lý Thuyết Điền Từ
                     </button>
@@ -392,17 +366,9 @@
                 </div>
             </div>
 
-            <!-- PRACTICE TAB 1: FILL IN THE BLANK THEORY (BÀI 4 & BÀI 6) -->
-            <div id="practice-theory-container" class="hidden space-y-8">
-                <!-- Theory fill HTML inserted dynamically -->
-            </div>
+            <div id="practice-theory-container" class="hidden space-y-8"></div>
+            <div id="practice-quiz-container" class="space-y-6"></div>
 
-            <!-- PRACTICE TAB 2: MULTIPLE CHOICE QUESTIONS -->
-            <div id="practice-quiz-container" class="space-y-6">
-                <!-- Quiz HTML inserted dynamically -->
-            </div>
-
-            <!-- Nút Nộp Bài cho chế độ Luyện tập -->
             <div id="practice-submit-container" class="flex justify-center pt-6 pb-12">
                 <button onclick="submitPractice()" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-lg shadow-xl shadow-emerald-900/50 hover:scale-105 transition-all flex items-center">
                     <i class="fa-solid fa-paper-plane mr-3"></i>Nộp Bài & Chấm Điểm
@@ -412,7 +378,6 @@
 
         <!-- SCREEN 3: MOCK EXAM SCREEN -->
         <section id="exam-screen" class="hidden space-y-6">
-            <!-- Exam Header -->
             <div class="glass-card p-6 rounded-2xl border border-emerald-500/30 flex flex-col md:flex-row items-center justify-between gap-4 sticky top-24 z-40 bg-slate-900/90 backdrop-blur-lg">
                 <div class="flex items-center space-x-4">
                     <div class="w-12 h-12 rounded-xl bg-emerald-950 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold text-xl">
@@ -420,29 +385,26 @@
                     </div>
                     <div>
                         <h2 class="text-xl font-bold text-white">ĐỀ THI TRẮC NGHIỆM GIỮA KÌ I</h2>
-                        <p class="text-xs text-slate-400">Tổng cộng <span id="exam-total-count">0</span> câu hỏi - Hoàn thành và nộp bài để xem điểm</p>
+                        <p class="text-xs text-slate-400">Tổng cộng <span id="exam-total-count">0</span> câu hỏi - Hoàn thành và nộp bài để chấm điểm</p>
                     </div>
                 </div>
 
-                <!-- Actions -->
-                <div class="flex items-center space-x-4">
-                    <button onclick="submitExam()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold shadow-lg shadow-emerald-900/50 transition-all">
+                <div class="flex items-center space-x-3">
+                    <button onclick="startMockExam()" class="px-4 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold transition-all text-sm shadow-md">
+                        <i class="fa-solid fa-shuffle mr-2"></i>Đảo Đề Thi Mới
+                    </button>
+                    <button onclick="submitExam()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold shadow-lg shadow-emerald-900/50 transition-all text-sm">
                         <i class="fa-solid fa-paper-plane mr-2"></i>Nộp Bài & Chấm Điểm
                     </button>
                 </div>
             </div>
 
-            <!-- Exam Progress Bar -->
             <div class="w-full bg-slate-800 rounded-full h-2.5 overflow-hidden">
                 <div id="exam-progress" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
             </div>
 
-            <!-- Exam Questions Wrapper -->
-            <div id="exam-questions-container" class="space-y-6">
-                <!-- Dynamically Generated -->
-            </div>
+            <div id="exam-questions-container" class="space-y-6"></div>
 
-            <!-- Nút Nộp Bài ở cuối trang đề thi -->
             <div class="flex justify-center pt-6 pb-12">
                 <button onclick="submitExam()" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-lg shadow-xl shadow-emerald-900/50 hover:scale-105 transition-all flex items-center">
                     <i class="fa-solid fa-paper-plane mr-3"></i>Nộp Bài & Chấm Điểm
@@ -488,153 +450,275 @@
     <footer class="glass-card border-t border-slate-800 mt-12 py-8 relative z-10">
         <div class="max-w-7xl mx-auto px-4 text-center text-sm text-slate-400 space-y-2">
             <p class="font-semibold text-slate-300">Hệ Thống Ôn Tập Sinh Học 11 - Chương I: Trao Đổi Chất & Chuyển Hóa Năng Lượng Ở Sinh Vật</p>
-            <p>Thiết kế EdTech Chuyên Nghiệp • Đầy đủ 100% Nội Dung Tài Liệu Giữa Kì I</p>
+            <p>Thiết kế EdTech Chuyên Nghiệp • Đầy đủ 100% 101 Câu Trắc Nghiệm + Hình Ảnh Thí Nghiệm</p>
         </div>
     </footer>
 
     <!-- JAVASCRIPT DATA & LOGIC -->
     <script>
-        // --- 1. DATA BANK: QUESTIONS FROM LESSONS ---
+        // --- SVG IMAGES GENERATOR FUNCTION ---
+        function getSvgImage(type) {
+            if (type === 'hut-nuoc') {
+                return `
+                <div class="img-container bg-slate-900 p-4">
+                    <svg viewBox="0 0 500 300" class="w-full h-auto">
+                        <!-- Beaker A -->
+                        <rect x="30" y="80" width="100" height="160" rx="5" fill="none" stroke="#64748b" stroke-width="4"/>
+                        <rect x="32" y="140" width="96" height="98" fill="#38bdf8" opacity="0.4"/>
+                        <text x="80" y="220" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="bold">A (Đối chứng)</text>
+                        <text x="80" y="270" text-anchor="middle" fill="#94a3b8" font-size="12">(1)</text>
+
+                        <!-- Beaker B start -->
+                        <rect x="190" y="80" width="100" height="160" rx="5" fill="none" stroke="#64748b" stroke-width="4"/>
+                        <rect x="192" y="140" width="96" height="98" fill="#38bdf8" opacity="0.4"/>
+                        <path d="M 240 180 L 240 60" stroke="#15803d" stroke-width="6"/>
+                        <path d="M 240 180 L 220 210 M 240 180 L 260 210 M 240 190 L 230 220" stroke="#d97706" stroke-width="3"/>
+                        <circle cx="230" cy="50" r="15" fill="#22c55e"/>
+                        <circle cx="250" cy="55" r="12" fill="#22c55e"/>
+                        <text x="240" y="220" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="bold">B (Bắt đầu)</text>
+                        <text x="240" y="270" text-anchor="middle" fill="#94a3b8" font-size="12">(2)</text>
+
+                        <!-- Beaker B after 3 days -->
+                        <rect x="350" y="80" width="100" height="160" rx="5" fill="none" stroke="#64748b" stroke-width="4"/>
+                        <rect x="352" y="180" width="96" height="58" fill="#38bdf8" opacity="0.4"/>
+                        <path d="M 400 180 L 400 50" stroke="#15803d" stroke-width="6"/>
+                        <path d="M 400 180 L 380 210 M 400 180 L 420 210 M 400 190 L 390 220" stroke="#d97706" stroke-width="3"/>
+                        <circle cx="390" cy="40" r="18" fill="#22c55e"/>
+                        <circle cx="410" cy="45" r="15" fill="#22c55e"/>
+                        <text x="400" y="220" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="bold">B (Sau 3 ngày)</text>
+                        <text x="400" y="270" text-anchor="middle" fill="#94a3b8" font-size="12">(3)</text>
+                    </svg>
+                </div>`;
+            } else if (type === 'thoat-hoi-nuoc') {
+                return `
+                <div class="img-container bg-slate-900 p-4">
+                    <svg viewBox="0 0 500 320" class="w-full h-auto">
+                        <!-- Bell Jar 1 -->
+                        <path d="M 60 260 L 60 120 A 70 70 0 0 1 200 120 L 200 260 Z" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="6,6"/>
+                        <rect x="95" y="200" width="70" height="55" rx="5" fill="#78350f"/>
+                        <text x="130" y="150" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="bold">Đối chứng</text>
+                        <text x="130" y="290" text-anchor="middle" fill="#94a3b8" font-size="12">Chậu đất (Không cây)</text>
+
+                        <!-- Bell Jar 2 -->
+                        <path d="M 300 260 L 300 120 A 70 70 0 0 1 440 120 L 440 260 Z" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="6,6"/>
+                        <rect x="335" y="200" width="70" height="55" rx="5" fill="#78350f"/>
+                        <path d="M 370 200 L 370 110" stroke="#15803d" stroke-width="5"/>
+                        <circle cx="355" cy="130" r="14" fill="#22c55e"/>
+                        <circle cx="385" cy="120" r="16" fill="#22c55e"/>
+                        <circle cx="370" cy="95" r="15" fill="#22c55e"/>
+                        <circle cx="320" cy="140" r="4" fill="#38bdf8"/>
+                        <circle cx="330" cy="110" r="5" fill="#38bdf8"/>
+                        <circle cx="410" cy="120" r="4" fill="#38bdf8"/>
+                        <circle cx="425" cy="150" r="5" fill="#38bdf8"/>
+                        <text x="420" y="90" fill="#38bdf8" font-size="12" font-weight="bold">Giọt nước ngưng tụ</text>
+                        <text x="370" y="290" text-anchor="middle" fill="#94a3b8" font-size="12">Chậu có cây tươi</text>
+                    </svg>
+                </div>`;
+            } else if (type === 'khi-khong') {
+                return `
+                <div class="img-container bg-slate-900 p-4 text-center">
+                    <svg viewBox="0 0 250 200" class="w-48 h-auto mx-auto">
+                        <ellipse cx="125" cy="100" rx="90" ry="60" fill="#15803d" stroke="#22c55e" stroke-width="4"/>
+                        <ellipse cx="125" cy="100" rx="50" ry="20" fill="#090d16" stroke="#4ade80" stroke-width="6"/>
+                        <circle cx="70" cy="80" r="5" fill="#86efac"/>
+                        <circle cx="85" cy="120" r="6" fill="#86efac"/>
+                        <circle cx="170" cy="75" r="5" fill="#86efac"/>
+                        <circle cx="160" cy="125" r="6" fill="#86efac"/>
+                    </svg>
+                    <span class="inline-block mt-2 px-3 py-1 rounded bg-slate-800 text-emerald-400 font-mono text-sm border border-emerald-500/30">Tế bào khí khổng (10µm)</span>
+                </div>`;
+            } else if (type === 'hoa-cam-chuong') {
+                return `
+                <div class="img-container bg-slate-900 p-4">
+                    <svg viewBox="0 0 450 220" class="w-full h-auto">
+                        <!-- Glass A -->
+                        <rect x="20" y="100" width="70" height="90" rx="4" fill="#ef4444" opacity="0.6" stroke="#94a3b8"/>
+                        <path d="M 55 100 L 55 40" stroke="#ef4444" stroke-width="4"/>
+                        <circle cx="55" cy="30" r="18" fill="#fca5a5" stroke="#ef4444" stroke-width="3"/>
+                        <text x="55" y="210" text-anchor="middle" fill="#ef4444" font-weight="bold">A (Mực Đỏ)</text>
+
+                        <!-- Glass B -->
+                        <rect x="130" y="100" width="70" height="90" rx="4" fill="#eab308" opacity="0.6" stroke="#94a3b8"/>
+                        <path d="M 165 100 L 165 40" stroke="#eab308" stroke-width="4"/>
+                        <circle cx="165" cy="30" r="18" fill="#fef08a" stroke="#eab308" stroke-width="3"/>
+                        <text x="165" y="210" text-anchor="middle" fill="#eab308" font-weight="bold">B (Mực Vàng)</text>
+
+                        <!-- Glass C -->
+                        <rect x="240" y="100" width="70" height="90" rx="4" fill="#22c55e" opacity="0.6" stroke="#94a3b8"/>
+                        <path d="M 275 100 L 275 40" stroke="#22c55e" stroke-width="4"/>
+                        <circle cx="275" cy="30" r="18" fill="#bbf7d0" stroke="#22c55e" stroke-width="3"/>
+                        <text x="275" y="210" text-anchor="middle" fill="#22c55e" font-weight="bold">C (Mực Xanh Lá)</text>
+
+                        <!-- Glass D -->
+                        <rect x="350" y="100" width="70" height="90" rx="4" fill="#3b82f6" opacity="0.6" stroke="#94a3b8"/>
+                        <path d="M 385 100 L 385 40" stroke="#3b82f6" stroke-width="4"/>
+                        <circle cx="385" cy="30" r="18" fill="#bfdbfe" stroke="#3b82f6" stroke-width="3"/>
+                        <text x="385" y="210" text-anchor="middle" fill="#3b82f6" font-weight="bold">D (Mực Xanh Dương)</text>
+                    </svg>
+                </div>`;
+            } else if (type === 'moi-quan-he-qh-hh') {
+                return `
+                <div class="img-container bg-slate-900 p-4 text-center">
+                    <svg viewBox="0 0 400 240" class="w-full h-auto">
+                        <rect x="50" y="20" width="120" height="70" rx="35" fill="#15803d" stroke="#4ade80" stroke-width="3"/>
+                        <text x="110" y="60" text-anchor="middle" fill="#ffffff" font-weight="bold">Lục Lạp (Quang Hợp)</text>
+
+                        <rect x="230" y="150" width="120" height="70" rx="35" fill="#b45309" stroke="#f59e0b" stroke-width="3"/>
+                        <text x="290" y="190" text-anchor="middle" fill="#ffffff" font-weight="bold">Ti Thể (Hô Hấp)</text>
+
+                        <path d="M 170 45 Q 300 45 290 140" fill="none" stroke="#22c55e" stroke-width="3"/>
+                        <text x="260" y="75" fill="#4ade80" font-size="12" font-weight="bold">Glucose + O2</text>
+
+                        <path d="M 230 195 Q 100 195 110 100" fill="none" stroke="#f59e0b" stroke-width="3"/>
+                        <text x="130" y="170" fill="#fbbf24" font-size="12" font-weight="bold">CO2 + H2O</text>
+                    </svg>
+                </div>`;
+            }
+            return '';
+        }
+
+        // --- DATA BANK: 101 FULL QUESTIONS FROM WORD FILE ---
         const LESSONS_DATA = {
             bai1: {
                 id: 'bai1',
                 title: 'BÀI 1: KHÁI QUÁT VỀ TRAO ĐỔI CHẤT VÀ CHUYỂN HOÁ NĂNG LƯỢNG',
                 questions: [
                     { id: 1, text: 'Câu 1: Quá trình chuyển hoá năng lượng trong sinh giới bao gồm mấy giai đoạn?', options: ['A. 1.', 'B. 2.', 'C. 3.', 'D. 4.'], correct: 2, explain: 'Quá trình chuyển hóa năng lượng trong sinh giới gồm 3 giai đoạn: Biến đổi năng lượng ánh sáng thành hóa năng, giải phóng năng lượng và huy động năng lượng.' },
-                    { id: 2, text: 'Câu 2: Năng lượng tích lũy trong ATP được cung cấp cho các quá trình sinh lí của cơ thể thuộc giai đoạn nào?', options: ['A. Giai đoạn tổng hợp.', 'B. Giai đoạn phân giải.', 'C. Giai đoạn huy động năng lượng.', 'D. Giai đoạn chuyển hóa.'], correct: 2, explain: 'Năng lượng tích lũy trong ATP được cơ thể huy động để sử dụng cho các quá trình sinh lí thuộc giai đoạn huy động năng lượng.' },
-                    { id: 3, text: 'Câu 3: Đâu là vai trò của trao đổi chất và chuyển hóa năng lượng đối với sinh vật?', options: ['A. Giúp sinh vật lấy được các chất từ môi trường.', 'B. Giúp sinh vật chuyển hóa các chất phức tạp thành các chất đơn giản.', 'C. Giúp sinh vật tồn tại và phát triển.', 'D. Giúp sinh vật phân giải các chất độc hại sinh ra từ quá trình chuyển hóa.'], correct: 2, explain: 'Vai trò cốt lõi và tổng quát nhất của trao đổi chất và chuyển hóa năng lượng là giúp sinh vật tồn tại và phát triển.' },
-                    { id: 4, text: 'Câu 4: Quá trình nào dưới đây không phải là dấu hiệu đặc trưng của trao đổi chất và chuyển hóa năng lượng ở sinh vật?', options: ['A. Phân giải các chất từ môi trường và hấp thụ các chất.', 'B. Tiếp nhận các chất từ môi trường và vận chuyển các chất.', 'C. Biến đổi các chất kèm theo chuyển hóa năng lượng ở tế bào.', 'D. Thải các chất vào môi trường.'], correct: 0, explain: 'Dấu hiệu đặc trưng gồm tiếp nhận, biến đổi, thải chất và điều hòa.' },
-                    { id: 5, text: 'Câu 5: Nguồn năng lượng khởi đầu trong sinh giới là', options: ['A. năng lượng hóa học.', 'B. năng lượng gió.', 'C. năng lượng sinh học.', 'D. năng lượng ánh sáng.'], correct: 3, explain: 'Nguồn năng lượng khởi đầu cho toàn bộ sinh giới là năng lượng ánh sáng mặt trời.' },
-                    { id: 6, text: 'Câu 6: Quá trình điều hòa trao đổi chất và chuyển hóa năng lượng ở động vật có đặc điểm nào sau đây?', options: ['A. Luôn chịu sự chi phối của hệ thần kinh và hormone.', 'B. Chỉ chịu sự điều hòa của hệ thần kinh.', 'C. Chỉ chịu sự chi phối của tuyến nội tiết.', 'D. Không cần sự điều hòa khi cơ thể nghỉ ngơi.'], correct: 0, explain: 'Ở động vật, quá trình trao đổi chất và chuyển hóa năng lượng được điều hòa bởi hệ thần kinh và hệ nội tiết (hormone).' },
-                    { id: 7, text: 'Câu 7: Phát biểu nào sau đây đúng khi nói về trao đổi chất và chuyển hóa năng lượng?', options: ['A. Trao đổi chất luôn đi kèm với chuyển hóa năng lượng.', 'B. Trao đổi chất diễn ra độc lập với chuyển hóa năng lượng.', 'C. Chuyển hóa năng lượng chỉ xảy ra ở động vật.', 'D. Trao đổi chất chỉ diễn ra ở thực vật.'], correct: 0, explain: 'Trao đổi chất và chuyển hóa năng lượng là hai mặt thống nhất của một quá trình sống, luôn gắn liền với nhau.' },
-                    { id: 8, text: 'Câu 8: Ở thực vật, quá trình trao đổi chất và chuyển hóa năng lượng diễn ra chủ yếu thông qua các cơ quan nào?', options: ['A. Rễ, thân, lá.', 'B. Hoa, quả, hạt.', 'C. Mạch gỗ và mạch rây.', 'D. Khí khổng ở lá.'], correct: 0, explain: 'Rễ, thân, lá là các cơ quan dinh dưỡng chủ yếu thực hiện trao đổi chất và chuyển hóa năng lượng ở thực vật.' },
-                    { id: 9, text: 'Câu 9: Sinh vật tự dưỡng là nhóm sinh vật có khả năng', options: ['A. tự tổng hợp chất hữu cơ từ chất vô cơ.', 'B. sử dụng chất hữu cơ có sẵn từ sinh vật khác.', 'C. phân giải chất hữu cơ thành chất vô cơ đơn giản.', 'D. hấp thụ nước và khoáng trực tiếp từ không khí.'], correct: 0, explain: 'Sinh vật tự dưỡng (như thực vật, tảo, vi khuẩn quang hợp) tự tổng hợp chất hữu cơ từ chất vô cơ.' },
-                    { id: 10, text: 'Câu 10: Sinh vật dị dưỡng bao gồm những đối tượng nào?', options: ['A. Thực vật và tảo.', 'B. Động vật, nấm và phần lớn vi sinh vật dị dưỡng.', 'C. Vi khuẩn lam và thực vật C4.', 'D. Tất cả các loài sinh vật.'], correct: 1, explain: 'Động vật, nấm và vi sinh vật dị dưỡng sử dụng chất hữu cơ có sẵn làm thức ăn.' },
-                    { id: 11, text: 'Câu 11: Đồng hóa là quá trình', options: ['A. tổng hợp các chất hữu cơ phức tạp từ các chất đơn giản và tích lũy năng lượng.', 'B. phân giải các chất hữu cơ phức tạp thành chất đơn giản và giải phóng năng lượng.', 'C. vận chuyển các chất trong cơ thể sinh vật.', 'D. thải các chất cặn bã ra khỏi cơ thể.'], correct: 0, explain: 'Đồng hóa là tổng hợp chất hữu cơ phức tạp và tích lũy năng lượng.' },
-                    { id: 12, text: 'Câu 12: Dị hóa là quá trình', options: ['A. tổng hợp các chất hữu cơ.', 'B. phân giải các chất hữu cơ phức tạp thành chất đơn giản kèm theo giải phóng năng lượng.', 'C. hấp thụ chất dinh dưỡng từ môi trường.', 'D. tích lũy năng lượng dưới dạng ATP.'], correct: 1, explain: 'Dị hóa là phân giải chất hữu cơ và giải phóng năng lượng.' },
-                    { id: 13, text: 'Câu 13: Đồng hóa và dị hóa có mối quan hệ với nhau như thế nào?', options: ['A. Hai quá trình đối lập nhưng thống nhất, gắn bó mật thiết với nhau trong tế bào.', 'B. Hai quá trình hoàn toàn độc lập.', 'C. Đồng hóa diễn ra trước, dị hóa diễn ra sau.', 'D. Dị hóa tạo ra chất hữu cơ cho đồng hóa sử dụng trực tiếp.'], correct: 0, explain: 'Đồng hóa và dị hóa là hai mặt của quá trình chuyển hóa vật chất, đồng hóa cung cấp nguyên liệu cho dị hóa và ngược lại.' },
-                    { id: 14, text: 'Câu 14: Đâu là dạng năng lượng chủ yếu được tế bào sử dụng cho các hoạt động sống?', options: ['A. Nhiệt năng.', 'B. Quang năng.', 'C. Hóa năng trong ATP.', 'D. Điện năng sinh học.'], correct: 2, explain: 'ATP là đồng tiền năng lượng của tế bào, cung cấp cho các hoạt động sống.' },
-                    { id: 15, text: 'Câu 15: Vai trò của thực vật trong chuỗi chuyển hóa năng lượng tự nhiên là gì?', options: ['A. Biến đổi năng lượng ánh sáng thành hóa năng trong các chất hữu cơ.', 'B. Phân giải chất hữu cơ thành chất vô cơ trả lại cho môi trường.', 'C. Tiêu thụ trực tiếp năng lượng nhiệt từ mặt trời.', 'D. Dự trữ năng lượng dưới dạng khoáng vật.'], correct: 0, explain: 'Thực vật quang hợp biến đổi quang năng thành hóa năng cung cấp cho sinh giới.' },
-                    { id: 16, text: 'Câu 16: Khi cơ thể ở trạng thái đói hoặc vận động mạnh, quá trình nào được ưu tiên tăng cường?', options: ['A. Đồng hóa.', 'B. Dị hóa.', 'C. Quang hợp.', 'D. Tổng hợp protein.'], correct: 1, explain: 'Khi vận động hoặc đói, cơ thể tăng cường dị hóa (phân giải glycogen, lipid) để giải phóng năng lượng.' },
-                    { id: 17, text: 'Câu 17: Phát biểu nào sau đây đúng khi nói về quá trình chuyển hóa năng lượng ở sinh vật?', options: ['A. Năng lượng trong sinh giới luôn được bảo toàn và chuyển hóa qua các dạng khác nhau.', 'B. Năng lượng bị tiêu hao hoàn toàn và không thể chuyển hóa.', 'C. Động vật có thể tự tổng hợp quang năng thành hóa năng.', 'D. Thực vật không cần năng lượng cho quá trình hô hấp.'], correct: 0, explain: 'Năng lượng tuân theo định luật bảo toàn, chuyển hóa từ quang năng -> hóa năng -> động năng/nhiệt năng.' },
-                    { id: 18, text: 'Câu 18: Sự trao đổi chất giữa cơ thể sinh vật và môi trường bao gồm các giai đoạn chính nào?', options: ['A. Lấy chất từ môi trường -> Biến đổi trong cơ thể -> Thải chất ra môi trường.', 'B. Đào thải -> Hấp thụ -> Tổng hợp.', 'C. Tiêu hóa -> Hô hấp -> Bài tiết.', 'D. Đồng hóa -> Dị hóa -> Thích nghi.'], correct: 0, explain: 'Quá trình trao đổi chất luôn gồm 3 khâu: Lấy các chất từ môi trường, chuyển hóa trong cơ thể, và thải chất ra môi trường.' }
+                    { id: 2, text: 'Câu 2: Năng lượng tích lũy trong ATP được cung cấp cho các quá trình sinh lí của cơ thể thuộc giai đoạn nào?', options: ['A. Giai đoạn tổng hợp.', 'B. Giai đoạn phân giải.', 'C. Giai đoạn huy động năng lượng.', 'D. Giai đoạn chuyển hóa.'], correct: 2, explain: 'Năng lượng tích lũy trong ATP được cơ thể huy động sử dụng cho các quá trình sinh lí.' },
+                    { id: 3, text: 'Câu 3: Đâu là vai trò của trao đổi chất và chuyển hóa năng lượng đối với sinh vật?', options: ['A. Giúp sinh vật lấy được các chất từ môi trường.', 'B. Giúp sinh vật chuyển hóa các chất phức tạp thành các chất đơn giản.', 'C. Giúp sinh vật tồn tại và phát triển.', 'D. Giúp sinh vật phân giải các chất độc hại sinh ra từ quá trình chuyển hóa.'], correct: 2, explain: 'Vai trò tổng quát và quan trọng nhất là giúp sinh vật tồn tại và phát triển.' },
+                    { id: 4, text: 'Câu 4: Quá trình nào dưới đây không phải là dấu hiệu đặc trưng của trao đổi chất và chuyển hóa năng lượng ở sinh vật?', options: ['A. Phân giải các chất từ môi trường và hấp thụ các chất.', 'B. Tiếp nhận các chất từ môi trường và vận chuyển các chất.', 'C. Biến đổi các chất kèm theo chuyển hóa năng lượng ở tế bào.', 'D. Thải các chất vào môi trường.'], correct: 0, explain: 'Dấu hiệu đặc trưng gồm tiếp nhận/vận chuyển, biến đổi/chuyển hóa, thải chất và điều hòa.' },
+                    { id: 5, text: 'Câu 5: Nguồn năng lượng khởi đầu trong sinh giới là', options: ['A. năng lượng hóa học.', 'B. năng lượng gió.', 'C. năng lượng sinh học.', 'D. năng lượng ánh sáng.'], correct: 3, explain: 'Nguồn năng lượng khởi đầu cho sinh giới là năng lượng ánh sáng mặt trời.' },
+                    { id: 6, text: 'Câu 6: Quá trình điều hòa trao đổi chất và chuyển hóa năng lượng ở động vật có đặc điểm nào sau đây?', options: ['A. Luôn chịu sự chi phối của hệ tuần hoàn.', 'B. Được điều chỉnh phù hợp với nhu cầu của cơ thể thông qua hormone và hệ thần kinh.', 'C. Được điều chỉnh phù hợp với nhu cầu của cơ thể thông qua hormone và hệ tuần hoàn.', 'D. Chịu sự chi phối của hormone và hệ hô hấp.'], correct: 1, explain: 'Ở động vật, sự điều hòa được thực hiện qua hệ thần kinh và hormone.' },
+                    { id: 7, text: 'Câu 7: Quá trình đồng hóa ở cấp độ tế bào có đặc điểm là', options: ['A. tổng hợp các chất và tích lũy năng lượng.', 'B. tổng hợp các chất và giải phóng năng lượng.', 'C. phân giải các chất và tích lũy năng lượng.', 'D. phân giải các chất và giải phóng năng lượng.'], correct: 0, explain: 'Đồng hóa là quá trình tổng hợp các chất phức tạp và tích lũy năng lượng.' },
+                    { id: 8, text: 'Câu 8: Đâu không phải là vai trò của sinh vật tự dưỡng trong sinh giới?', options: ['A. Cung cấp O2, đảm bảo cho hoạt động sống của hầu hết sinh vật.', 'B. Cung cấp thức ăn, nơi ở và nơi sinh sản cho động vật.', 'C. Điều hòa khí hậu.', 'D. Cung cấp chất dinh dưỡng cho toàn bộ sinh vật trên Trái Đất.'], correct: 3, explain: 'Sinh vật tự dưỡng không cung cấp cho toàn bộ sinh vật (không bao gồm các loài tự dưỡng khác).' },
+                    { id: 9, text: 'Câu 9: Điều nào sau đây không đúng khi nói về sinh vật tự dưỡng?', options: ['A. Nhận nguồn carbon chủ yếu từ hợp chất hữu cơ để tổng hợp các chất hữu cơ.', 'B. Sử dụng năng lượng ánh sáng.', 'C. Tổng hợp chất hữu cơ từ chất vô cơ.', 'D. Sử dụng nguồn carbon chủ yếu là CO2.'], correct: 0, explain: 'Sinh vật tự dưỡng sử dụng nguồn carbon chủ yếu là CO2 vô cơ, không phải hợp chất hữu cơ.' },
+                    { id: 10, text: 'Câu 10: Đồng hóa là gì?', options: ['A. Phân hủy các chất', 'B. Tổng hợp chất mới, tích lũy năng lượng', 'C. Giải phóng năng lượng', 'D. Biến đổi các chất'], correct: 1, explain: 'Đồng hóa là tổng hợp chất mới và tích lũy năng lượng.' },
+                    { id: 11, text: 'Câu 11: Điều gì xảy ra cho cơ thể sinh vật nếu không thải được các chất thải ra môi trường?', options: ['A. Các chất độc hại, dư thừa sẽ ứ đọng lại trong cơ thể, làm cho quá trình chuyển hóa ngừng lại trong thời gian 1 ngày.', 'B. Các chất độc hại, dư thừa sẽ ứ đọng lại trong cơ thể, gây rối loạn các hoạt động sống, thậm chí gây tử vong.', 'C. Các chất độc hại, dư thừa sẽ được chuyển hóa thành các chất đơn giản, cơ thể sẽ hấp thụ chất này.', 'D. Cơ thể sẽ tái sử dụng các chất thải để cung cấp năng lượng cho các hoạt động sống.'], correct: 1, explain: 'Ứ đọng chất thải gây ngộ độc tế bào, rối loạn chuyển hóa và tử vong.' },
+                    { id: 12, text: 'Câu 12: Nhóm sinh vật có khả năng tự tổng hợp chất hữu cơ từ các chất vô cơ gọi là:', options: ['A. Sinh vật tự dưỡng', 'B. Sinh vật dị dưỡng', 'C. Vi sinh vật', 'D. Sinh vật phân giải'], correct: 0, explain: 'Sinh vật tự dưỡng tự tổng hợp chất hữu cơ từ chất vô cơ.' },
+                    { id: 13, text: 'Câu 13: Chất nào sau đây là sản phẩm của quá trình trao đổi chất được động vật thải ra ngoài môi trường?', options: ['A. Oxygen', 'B. Carbon dioxide', 'C. Chất dinh dưỡng', 'D. Vitamin'], correct: 1, explain: 'Động vật hô hấp thải CO2 ra môi trường.' },
+                    { id: 14, text: 'Câu 14: Quá trình chuyển hóa vật chất và năng lượng tạo ra ... cung cấp cho các hoạt động sống của cơ thể.', options: ['A. Hóa năng', 'B. Nhiệt năng', 'C. Động năng', 'D. Năng lượng.'], correct: 3, explain: 'Tạo ra Năng lượng (ATP) cung cấp cho các hoạt động sống.' },
+                    { id: 15, text: 'Câu 15: Trong quá trình trao đổi chất, luôn có sự:', options: ['A. Giải phóng năng lượng', 'B. Tích lũy (lưu trữ) năng lượng.', 'C. Giải phóng hoặc tích lũy năng lượng', 'D. Phản ứng dị hóa.'], correct: 2, explain: 'Trao đổi chất luôn đi kèm giải phóng (dị hóa) hoặc tích lũy (đồng hóa) năng lượng.' },
+                    { id: 16, text: 'Câu 16: Thành phần nào sau đây không được dùng làm nguyên liệu cho quá trình chuyển hóa các chất trong tế bào?', options: ['A. Carbon dioxide', 'B. Oxygen', 'C. Nhiệt', 'D. Tinh bột'], correct: 2, explain: 'Nhiệt là dạng năng lượng giải phóng, không dùng làm nguyên liệu hóa học.' },
+                    { id: 17, text: 'Câu 17: Ở thực vật, lá hấp thụ khí CO2 từ không khí và sử dụng năng lượng ánh sáng để quang hợp. Đây là dấu hiệu đặc trưng nào của trao đổi chất và chuyển hóa năng lượng ở sinh vật?', options: ['A. Thu nhận các chất.', 'B. Biến đổi các chất.', 'C. Thải các chất ra môi trường.', 'D. Điều hòa'], correct: 0, explain: 'Hấp thụ CO2 là dấu hiệu thu nhận các chất từ môi trường.' },
+                    { id: 18, text: 'Câu 18: Quang hợp là quá trình biến đổi:', options: ['A. Nhiệt năng được biến đổi thành hóa năng', 'B. Quang năng được biến đổi thành nhiệt năng', 'C. Quang năng được biến đổi thành hóa năng', 'D. Hóa năng được biến đổi thành nhiệt năng'], correct: 2, explain: 'Quang hợp biến đổi năng lượng ánh sáng (quang năng) thành hóa năng trong chất hữu cơ.' }
                 ]
             },
             bai2: {
                 id: 'bai2',
                 title: 'BÀI 2: TRAO ĐỔI NƯỚC VÀ KHOÁNG Ở THỰC VẬT',
                 questions: [
-                    { id: 1, text: 'Câu 1: Nước đi vào rễ cây từ đất theo cơ chế chủ yếu nào?', options: ['A. Thẩm thấu.', 'B. Vận chuyển chủ động.', 'C. Khuếch tán.', 'D. Thực bào.'], correct: 0, explain: 'Nước vào rễ theo cơ chế thẩm thấu từ môi trường nhược trương (dung dịch đất) vào ưu trương (tế bào lông hút).' },
-                    { id: 2, text: 'Câu 2: Con đường hấp thụ nước và khoáng từ đất vào mạch gỗ của rễ gồm mấy con đường chính?', options: ['A. 1.', 'B. 2.', 'C. 3.', 'D. 4.'], correct: 1, explain: 'Gồm 2 con đường: Con đường gian bào và con đường tế bào chất (symplast).' },
-                    { id: 3, text: 'Câu 3: Đai Caspary nằm ở lớp tế bào nào của rễ?', options: ['A. Biểu bì.', 'B. Nội bì.', 'C. Trụ giữa.', 'D. Vỏ.'], correct: 1, explain: 'Đai Caspary nằm ở lớp tế bào nội bì, không thấm nước, có vai trò kiểm soát các chất đi vào mạch gỗ.' },
-                    { id: 4, text: 'Câu 4: Lực chính đẩy dòng nước và chất khoáng đi từ rễ lên lá ở cây cao là gì?', options: ['A. Lực đẩy do áp suất rễ.', 'B. Lực hút do thoát hơi nước ở lá.', 'C. Lực liên kết giữa các phân tử nước.', 'D. Lực bám giữa nước và thành mạch gỗ.'], correct: 1, explain: 'Thoát hơi nước ở lá đóng vai trò là "động cơ hút" chính kéo dòng nước và khoáng lên cao.' },
-                    { id: 5, text: 'Câu 5: Mạch gỗ (xylem) có chức năng vận chuyển chủ yếu chất nào?', options: ['A. Nước và các ion khoáng hòa tan.', 'B. Chất hữu cơ tổng hợp từ lá.', 'C. Hormone thực vật dạng phức tạp.', 'D. Amino acid và sucrose.'], correct: 0, explain: 'Mạch gỗ vận chuyển nước và muối khoáng từ rễ lên thân và lá.' },
-                    { id: 6, text: 'Câu 6: Mạch rây (phloem) có chức năng vận chuyển chính là', options: ['A. nước và ion khoáng.', 'B. chất hữu cơ (chủ yếu là sucrose) và các chất đồng hóa.', 'C. khí oxygen và carbon dioxide.', 'D. các chất độc hại cần bài tiết.'], correct: 1, explain: 'Mạch rây vận chuyển các chất hữu cơ do lá tổng hợp đi nuôi cây.' },
-                    { id: 7, text: 'Câu 8: Thoát hơi nước ở lá diễn ra chủ yếu qua cơ quan nào?', options: ['A. Lớp cutin trên bề mặt lá.', 'B. Lỗ khí khổng.', 'C. Gân lá.', 'D. Biểu bì trên.'], correct: 1, explain: 'Khoảng 90% lượng nước thoát hơi diễn ra qua khí khổng.' },
-                    { id: 9, text: 'Câu 9: Khi tế bào khí khổng trương nước thì hiện tượng gì xảy ra?', options: ['A. Khí khổng mở ra.', 'B. Khí khổng đóng lại.', 'C. Tế bào hạt đậu duỗi thẳng.', 'D. Áp suất thẩm thấu giảm mạnh.'], correct: 1, explain: 'Khi tế bào hạt đậu trương nước, thành mỏng căng ra kéo thành dày cong lại làm khí khổng mở rộng.' },
-                    { id: 10, text: 'Câu 10: Nguyên tố khoáng thiết yếu là những nguyên tố', options: ['A. cây có thể sống thiếu nếu có ánh sáng tốt.', 'B. thiếu nó cây không hoàn thành được chu kì sống.', 'C. chỉ cần với lượng rất nhỏ cho mọi loài.', 'D. có hàm lượng lớn hơn 1% trong cơ thể khô.'], correct: 1, explain: 'Định nghĩa nguyên tố thiết yếu: thiếu nó cây không thể hoàn thành chu kì sống.' },
-                    { id: 11, text: 'Câu 11: Các nguyên tố khoáng đại lượng bao gồm nhóm nào dưới đây?', options: ['A. N, P, K, Ca, Mg, S, C, H, O.', 'B. Fe, B, Mn, Zn, Cu, Mo, Cl.', 'C. Co, Ni, Na, Si.', 'D. Chỉ có N, P, K.'], correct: 0, explain: 'Đại lượng gồm C, H, O, N, P, K, Ca, Mg, S (chiếm hàm lượng lớn).' },
-                    { id: 12, text: 'Câu 12: Biểu hiện rõ rệt nhất khi cây thiếu nguyên tố Nitrogen (N) là gì?', options: ['A. Lá vàng nhạt, sinh trưởng còi cọc.', 'B. Rễ cọc phát triển quá mức.', 'C. Lá có màu đỏ tía ở gân.', 'D. Quả rụng hàng loạt khi còn non.'], correct: 0, explain: 'Thiếu N làm giảm tổng hợp diệp lục dẫn đến lá vàng và còi cọc.' },
-                    { id: 13, text: 'Câu 13: Quá trình khử nitrate (NO3-) trong cây diễn ra theo sơ đồ nào?', options: ['A. NO3- -> NO2- -> NH4+.', 'B. NH4+ -> NO2- -> NO3-.', 'C. NO3- -> NH4+ -> NO2-.', 'D. N2 -> NH3 -> NO3-.'], correct: 0, explain: 'Quá trình khử nitrate chuyển hóa NO3- thành NO2- (nhờ nitrate reductase) rồi thành NH4+ (nhờ nitrite reductase).' },
-                    { id: 14, text: 'Câu 14: Ion khoáng nào đóng vai trò chủ đạo trong việc đóng mở khí khổng?', options: ['A. K+ (Potassium).', 'B. Ca2+ (Calcium).', 'C. Fe2+ (Iron).', 'D. Mg2+ (Magnesium).'], correct: 0, explain: 'Sự tích lũy và thoát ion K+ trong tế bào hạt đậu là nguyên nhân chính làm thay đổi áp suất thẩm thấu đóng/mở khí khổng.' },
-                    { id: 15, text: 'Câu 15: Vì sao cây trên cạn bị ngập úng lâu ngày thường bị chết?', options: ['A. Do rễ cây bị thiếu oxygen, không hô hấp được, mất khả năng hút nước.', 'B. Do rễ cây bị ngộ độc nước ngọt.', 'C. Do áp suất thẩm thấu của đất quá cao.', 'D. Do mạch gỗ bị tắc nghẽn hoàn toàn.'], correct: 0, explain: 'Ngập úng làm đất thiếu O2, lông hút hô hấp kém, mất năng lượng vận chuyển khoáng và hút nước.' },
-                    { id: 16, text: 'Câu 16: Dòng mạch rây vận chuyển các chất theo chiều nào?', options: ['A. Chỉ từ rễ lên lá.', 'B. Từ nguồn (lá) đến cơ quan chứa (rễ, củ, quả...).', 'C. Chỉ từ trên xuống dưới.', 'D. Theo chiều ngẫu nhiên.'], correct: 0, explain: 'Dòng mạch rây vận chuyển từ cơ quan nguồn (nơi quang hợp tạo chất hữu cơ) đến cơ quan chứa.' },
-                    { id: 17, text: 'Câu 17: Ý nghĩa sinh học quan trọng nhất của quá trình thoát hơi nước ở lá là gì?', options: ['A. Giúp hạ nhiệt độ của lá vào những ngày nắng nóng.', 'B. Tạo động lực đầu trên kéo nước và khoáng từ rễ lên, đồng thời mở khí khổng cho CO2 khuếch tán vào quang hợp.', 'C. Giúp thải các chất độc hại ra khỏi cây.', 'D. Giúp lá cây cứng cáp đứng thẳng.'], correct: 1, explain: 'Thoát hơi nước tạo động lực hút nước/khoáng và cung cấp CO2 cho quang hợp.' },
-                    { id: 18, text: 'Câu 18: Bón phân hợp lý và vượt mức có tác dụng gì đối với đất và cây trồng?', options: ['A. Tăng năng suất cây trồng và bảo vệ hệ sinh thái đất nếu đúng liều lượng.', 'B. Làm tăng pH đất vô thời hạn.', 'C. Giúp cây hấp thụ toàn bộ khoáng mà không cần nước.', 'D. Diệt sạch toàn bộ vi sinh vật có hại.'], correct: 0, explain: 'Bón phân hợp lý giúp tăng năng suất và giữ đất bền vững.' }
+                    { id: 1, text: 'Câu 1: Lực nào sau đây đóng vai trò là lực đẩy nước từ rễ lên thân, lên lá?', options: ['A. Lực thoát hơi nước', 'B. Lực liên kết giữa các phân tử nước với nhau', 'C. Lực liên kết giữa các phân tử nước với thành mạch dẫn', 'D. Áp suất rễ'], correct: 3, explain: 'Áp suất rễ đóng vai trò là lực đẩy từ dưới lên.' },
+                    { id: 2, text: 'Câu 2: Quá trình khử nitrate diễn ra theo sơ đồ nào dưới đây?', options: ['A. NO2- → NO3- → NH4+.', 'B. NO3- → NO2- → NH3.', 'C. NO3- → NO2- → NH4+.', 'D. NO3- → NO2- → NH2.'], correct: 2, explain: 'Sơ đồ chuẩn khử nitrate: NO3- → NO2- → NH4+.' },
+                    { id: 3, text: 'Câu 3: Thành phần của dịch mạch gỗ gồm:', options: ['A. Nước và ion khoáng', 'B. Amit và hoocmon', 'C. Axit amin và vitamin', 'D. Xitokinin và ankanoit'], correct: 0, explain: 'Thành phần chính của mạch gỗ là nước và ion khoáng hòa tan.' },
+                    { id: 4, text: 'Câu 4: Ở cây trưởng thành thoát hơi nước chủ yếu', options: ['A. qua khí khổng và cutin.', 'B. Chỉ qua cutin.', 'C. qua lông hút ở rễ.', 'D. qua biểu bì thân và rễ.'], correct: 0, explain: 'Thoát hơi nước diễn ra qua 2 con đường: qua khí khổng và qua lớp cutin.' },
+                    { id: 5, text: 'Câu 5: Có mấy tác nhân ngoại cảnh sau đây ảnh hưởng đến quá trình thoát hơi nước ở cây?\nI. Các ion khoáng    II. Ánh sáng    III. Nhiệt độ    IV. Nước', options: ['A. 3', 'B. 2', 'C. 4', 'D. 1'], correct: 2, explain: 'Cả 4 tác nhân đều ảnh hưởng đến độ mở khí khổng và sự thoát hơi nước.' },
+                    { id: 6, text: 'Câu 6: Cấu tạo của một khí khổng có các đặc điểm sau đây:\n1. Mỗi khí khổng có hai tế bào hình hạt đậu xếp úp vào nhau.\n2. Mỗi tế bào của khí khổng có chứa rất nhiều lục lạp.\n3. Tế bào khí khổng có vách dày mỏng không đều; thành trong sát lỗ khí dày hơn nhiều so với thành ngoài.\n4. Các tế bào hạt đậu của khí khổng xếp gần tế bào nhu mô của lá.\nHai đặc điểm cấu tạo quan trọng nào phù hợp với chức năng đóng mở của khí khổng?', options: ['A. 1, 3', 'B. 2, 3', 'C. 1, 2', 'D. 3, 4'], correct: 0, explain: 'Đặc điểm 1 (2 tế bào hạt đậu) và 3 (thành dày mỏng không đều) quyết định sự mở/đóng.' },
+                    { id: 7, text: 'Câu 7: Đâu không phải là vai trò của nước đối với cơ thể thực vật?', options: ['A. Là thành phần cấu tạo của tế bào.', 'B. Là nguyên liệu, môi trường của các phản ứng sinh hóa.', 'C. Cấu trúc nên các thành phần của tế bào và điều tiết các quá trình sinh lí.', 'D. Điều hòa nhiệt độ của cơ thể thực vật.'], correct: 2, explain: 'Đáp án C trùng lặp và phát biểu không chính xác theo chuẩn SGK.' },
+                    { id: 8, text: 'Câu 8: Rễ hấp thụ khoáng theo cơ chế thụ động phụ thuộc vào', options: ['A. sự cung cấp năng lượng của tế bào.', 'B. các chất mang được hoạt hóa năng lượng.', 'C. hình dạng của phân tử khoáng.', 'D. sự chênh lệch nồng độ chất khoáng.'], correct: 3, explain: 'Hấp thụ thụ động đi từ nơi có nồng độ cao sang nơi có nồng độ thấp.' },
+                    { id: 9, text: 'Câu 9: Phát biểu nào dưới đây sai khi nói về mạch rây?', options: ['A. Mạch rây được cấu tạo từ ống rây và tế bào kèm.', 'B. Các chất được vận chuyển theo một chiều từ rễ lên lá.', 'C. Các chất được vận chuyển theo hai chiều, từ lá xuống rễ hoặc ngược lại.', 'D. Dịch mạch rây có thành phần chính là đường sucrose.'], correct: 1, explain: 'B sai vì mạch rây vận chuyển chất hữu cơ từ lá xuống rễ hoặc ngược lại, không phải từ rễ lên lá.' },
+                    { id: 10, text: 'Câu 10: Thực vật chỉ có thể hấp thụ được nitrogen ở dạng', options: ['A. N2 tự do trong khí quyển.', 'B. hợp chất vô cơ.', 'C. N2 và NH3.', 'D. NH4+ và NO3-.'], correct: 3, explain: 'Rễ cây chỉ hấp thụ được nitrogen khoáng ở dạng NH4+ và NO3-.' },
+                    { id: 11, text: 'Câu 11: Khi tế bào khí khổng no nước thì', options: ['A. thành mỏng căng ra, thành dày co lại làm cho khí khổng mở ra.', 'B. thành dày căng ra làm cho thành mỏng căng theo, khí khổng mở ra.', 'C. thành dày căng ra làm cho thành mỏng co lại, khí khổng mở ra.', 'D. thành mỏng căng ra làm cho thành dày căng theo, khí khổng mở ra.'], correct: 3, explain: 'Khi no nước, thành mỏng căng ra kéo thành dày căng theo làm khí khổng mở.' },
+                    { id: 12, text: 'Câu 12: Khi xét về ảnh hưởng của độ ẩm không khí đến sự thoát hơi nước, điều nào sau đây đúng?', options: ['A. Độ ẩm không khí càng cao, sự thoát hơi nước không diễn ra.', 'B. Độ ẩm không khí càng thấp, sự thoát hơi nước càng yếu.', 'C. Độ ẩm không khí càng thấp, sự thoát hơi nước càng mạnh.', 'D. Độ ẩm không khí càng cao, sự thoát hơi nước càng mạnh.'], correct: 2, explain: 'Độ ẩm không khí càng thấp (không khí khô), sự thoát hơi nước càng mạnh.' },
+                    { id: 13, text: 'Câu 13: Thoát hơi nước có những vai trò nào trong các vai trò sau đây?\n1. Tạo lực hút đầu trên.\n2. Giúp hạ nhiệt độ của lá cây vào những ngày nắng nóng.\n3. Khí khổng mở cho CO2 khuếch tán vào lá cung cấp cho quá trình quang hợp.\n4. Cung cấp năng lượng cho cây.', options: ['A. (1), (3) và (4).', 'B. (1), (2) và (3).', 'C. (2), (3) và (4).', 'D. (1), (2) và (4).'], correct: 1, explain: 'Các vai trò đúng là 1, 2, 3. Ý 4 sai vì thoát hơi nước không tạo năng lượng.' },
+                    { id: 14, text: 'Câu 14: Các nguyên tố dinh dưỡng nào sau đây là các nguyên tố đại lượng', options: ['A. C, O, Mn, Cl, K, S, Fe', 'B. Zn, Cl, B, K, Cu, S', 'C. C, H, O, N, P, K, S, Ca, Mg', 'D. C, H, O, K, Zn, Cu, Fe'], correct: 2, explain: 'Đại lượng gồm C, H, O, N, P, K, S, Ca, Mg.' },
+                    { id: 15, text: 'Câu 15: Các nguyên tố vi lượng cần cho cây với số lượng nhỏ, nhưng có vai trò quan trọng vì:', options: ['A. Chúng hoạt hóa các enzim', 'B. Chúng được tích lũy trong hạt', 'C. Chúng cần cho một số pha sinh trưởng', 'D. Chúng có trong cấu trúc của tất cả bào quan'], correct: 0, explain: 'Nguyên tố vi lượng đóng vai trò hoạt hóa enzyme trong tế bào.' },
+                    { id: 16, text: 'Câu 16: Vai trò của nitơ trong cơ thể thực vật?', options: ['A. Là thành phần của nucleic acid, ATP, photpholipid; cần cho nở hoa, đậu quả, phát triển rễ.', 'B. Chủ yếu giữ cân bằng nước và ion trong tế bào, hoạt hóa enzim, mở khí khổng.', 'C. Là thành phần của thành tế bào, màng tế bào, hoạt hóa enzim.', 'D. Là thành phần của amino acid, nucleic acid, phytohormone, diệp lục, ATP, phytochrome...'], correct: 3, explain: 'Nitrogen cấu tạo nên amino acid, protein, nucleic acid, diệp lục, ATP...' },
+                    { id: 17, text: 'Câu 17: Nồng độ Ca2+ trong cây là 0,3%, trong đất là 0,1%. Cây sẽ nhận Ca2+ bằng cách nào?', options: ['A. Hấp thụ chủ động.', 'B. Hấp thụ thụ động.', 'C. Thẩm thấu.', 'D. Khuếch tán.'], correct: 0, explain: 'Hấp thụ ngược chiều nồng độ (từ 0.1% lên 0.3%) là hấp thụ chủ động cần năng lượng.' },
+                    { id: 18, text: 'Câu 18: Có khoảng bao nhiêu nguyên tố thiết yếu trực tiếp tham gia quá trình chuyển hóa vật chất ở thực vật?', options: ['A. 10.', 'B. 50.', 'C. 17.', 'D. 25.'], correct: 2, explain: 'Có khoảng 17 nguyên tố khoáng thiết yếu ở thực vật.' }
                 ]
             },
             bai3: {
                 id: 'bai3',
-                title: 'BÀI 3: THỰC HÀNH TRAO ĐỔI NƯỚC VÀ TRỒNG CÂY THỦY CANH/KHÍ CANH',
+                title: 'BÀI 3: THỰC HÀNH TRAO ĐỔI NƯỚC Ở THỰC VẬT VÀ TRỒNG CÂY THỦY CANH, KHÍ CANH',
                 questions: [
-                    { id: 1, text: 'Câu 1: Trong thí nghiệm chứng minh sự hút nước ở rễ cây, hiện tượng gì xảy ra với mực nước trong ống nghiệm cắm cây có rễ?', options: ['A. Mực nước giảm dần do rễ hút nước.', 'B. Mực nước tăng lên do rễ bài tiết nước.', 'C. Mực nước giữ nguyên không đổi.', 'D. Nước sôi sục và bay hơi nhanh.'], correct: 0, explain: 'Rễ cây hút nước làm mực nước trong ống nghiệm giảm xuống.' },
-                    { id: 2, text: 'Câu 2: Mục đích chính của việc trùm túi nylon trong suốt lên chậu cây khi thí nghiệm thoát hơi nước là gì?', options: ['A. Ngăn cản côn trùng cắn phá lá cây.', 'B. Giữ cho lá cây không bị khô do gió.', 'C. Ngưng tụ hơi nước thoát ra từ lá để quan sát rõ lượng nước thoát.', 'D. Tăng cường nhiệt độ cho cây quang hợp.'], correct: 0, explain: 'Túi nylon bọc kín giúp ngưng tụ hơi nước do lá thoát ra thành các giọt nước nhỏ.' },
-                    { id: 3, text: 'Câu 4: Khi quan sát tiêu bản biểu bì lá dưới kính hiển vi quang học, mục tiêu chính là quan sát cơ quan nào?', options: ['A. Mạch gỗ và mạch rây.', 'B. Tế bào khí khổng và tế bào hạt đậu.', 'C. Tầng sinh bần.', 'D. Lục lạp ở biểu bì trên.'], correct: 1, explain: 'Biêu bì lá dùng để soi và đếm số lượng khí khổng.' },
-                    { id: 5, text: 'Câu 5: Trong phương pháp trồng cây thủy canh, dung dịch dinh dưỡng cần đảm bảo yêu cầu nào sau đây?', options: ['A. Chỉ chứa nước cất và muối ăn NaCl.', 'B. Chứa đầy đủ các nguyên tố khoáng thiết yếu ở tỉ lệ cân đối.', 'C. Có độ pH axit mạnh từ 2.0 - 3.0.', 'D. Không cần sục khí oxygen ở rễ.'], correct: 1, explain: 'Thủy canh yêu cầu dung dịch chứa đủ các ion khoáng đa và vi lượng thiết yếu cho cây.' },
-                    { id: 6, text: 'Câu 6: Ưu điểm nổi bật của phương pháp trồng cây thủy canh và khí canh so với trồng đất truyền thống là gì?', options: ['A. Tiết kiệm diện tích, tiết kiệm nước, không cần làm cỏ và kiểm soát tốt dinh dưỡng.', 'B. Cây không bao giờ bị sâu bệnh tấn công.', 'C. Chi phí đầu tư ban đầu rất thấp.', 'D. Không cần ánh sáng mặt trời.'], correct: 0, explain: 'Thủy/khí canh tiết kiệm nước, phân bón, đất trồng và sạch sẽ.' },
-                    { id: 7, text: 'Câu 7: Trong thí nghiệm nhuộm màu hoa cẩm chướng (hoặc hoa hồng trắng) bằng dung dịch phẩm màu, cuống hoa được ngâm vào cốc màu, hiện tượng gì xảy ra sau vài giờ?', options: ['A. Cánh hoa bị đổi màu theo màu của dung dịch phẩm.', 'B. Rễ cây mọc dài ra từ cuống hoa.', 'C. Lá cây chuyển sang màu đen.', 'D. Nước trong cốc chuyển thành đặc quánh.'], correct: 0, explain: 'Mạch gỗ vận chuyển nước màu lên làm cánh hoa đổi màu, chứng minh chiều đi của mạch gỗ.' },
-                    { id: 8, text: 'Câu 8: Phát biểu nào sau đây đúng khi chuẩn bị tiêu bản soi khí khổng lá thài lài tía?', options: ['A. Bóc lớp biểu bì dưới của lá vì lá thài lài tía có nhiều khí khổng ở mặt dưới.', 'B. Cắt ngang thân cây thật mỏng.', 'C. Ngâm lá trong nước muối đậm đặc trước khi soi.', 'D. Dùng kim nhọn đâm thủng lá.'], correct: 0, explain: 'Biểu bì dưới lá thài lài tía rất dễ bóc và có nhiều khí khổng thuận lợi quan sát.' },
-                    { id: 9, text: 'Câu 9: Khi lắp ráp hệ thống khí canh, rễ cây được đặt ở đâu?', options: ['A. Ngập hoàn toàn trong dung dịch dinh dưỡng dạng lỏng.', 'B. Lơ lửng trong không khí và được phun sương dung dịch dinh dưỡng định kì.', 'C. Cắm sâu vào lớp cát ẩm.', 'D. Trộn lẫn với đất sét nung.'], correct: 1, explain: 'Khí canh treo rễ lơ lửng trong không khí và phun sương dung dịch.' },
-                    { id: 10, text: 'Câu 10: Tại sao trong hệ thống thủy canh người ta phải lắp đặt máy sục khí (máy bơm khí) vào bình chứa dung dịch dinh dưỡng?', options: ['A. Để khuấy đều dung dịch không bị lắng đọng.', 'B. Cung cấp khí oxygen cho rễ cây hô hấp mạnh mẽ.', 'C. Làm lạnh dung dịch dinh dưỡng.', 'D. Tạo bọt khí đẹp mắt.'], correct: 1, explain: 'Sục khí giúp rễ đủ O2 hô hấp, tránh ngạt nước.' },
-                    { id: 11, text: 'Câu 11: Trong thí nghiệm đo cường độ thoát hơi nước bằng phương pháp cân khối lượng chậu cây, kết quả cho thấy khối lượng chậu cây giảm dần theo thời gian. Nguyên nhân chính là do đâu?', options: ['A. Cây quang hợp thải khí oxygen.', 'B. Nước thoát ra khỏi lá vào không khí.', 'C. Phân bón trong đất bị bay hơi.', 'D. Rễ cây tiêu thụ hết nước.'], correct: 1, explain: 'Nước thoát ra khỏi lá làm giảm trọng lượng toàn bộ chậu cây.' },
-                    { id: 12, text: 'Câu 12: Khi tiến hành thí nghiệm kiểm tra sự có mặt của mạch gỗ, người ta thường dùng dao lam cắt ngang phần nào của thân cây?', options: ['A. Rễ chính.', 'B. Thân non hoặc cuống lá.', 'C. Gân chính của lá già.', 'D. Vỏ quả.'], correct: 1, explain: 'Thân non dễ cắt mỏng và thấy rõ vị trí mạch gỗ.' },
-                    { id: 13, text: 'Câu 13: Hiện tượng "ứ giọt" ở thực vật thường xuất hiện vào thời điểm nào?', options: ['A. Buổi trưa nắng gắt.', 'B. Sớm mai khi độ ẩm không khí cao, đất ẩm ướt.', 'C. Ban đêm khi trời khô hạn.', 'D. Khi cây bị thiếu nước trầm trọng.'], correct: 1, explain: 'Ứ giọt xuất hiện sáng sớm khi độ ẩm cao, áp suất rễ đẩy nước ra qua thủy khổng.' },
-                    { id: 14, text: 'Câu 14: Lực đẩy tạo nên hiện tượng ứ giọt ở thực vật là gì?', options: ['A. Lực hút thoát hơi nước.', 'B. Áp suất rễ.', 'C. Lực đẩy của mạch rây.', 'D. Sức trương nước của tế bào biểu bì.'], correct: 1, explain: 'Áp suất rễ đẩy nước từ mạch ra mép lá tạo giọt nước.' },
-                    { id: 15, text: 'Câu 15: Khi quan sát khí khổng dưới kính hiển vi ở vật kính 40x, ta thấy tế bào hạt đậu có dạng gì?', options: ['A. Hình hạt đậu (hoặc hình quả thận) úp vào nhau.', 'B. Hình sao nhiều nhánh.', 'C. Hình vuông xếp xít nhau.', 'D. Hình trụ dài không có nhân.'], correct: 0, explain: 'Tế bào hạt đậu cấu tạo khí khổng có hình hạt đậu.' },
-                    { id: 16, text: 'Câu 16: Trong các bước trồng cây thủy canh, việc điều chỉnh pH của dung dịch dinh dưỡng nằm trong khoảng nào là tốt nhất cho đa số loài cây?', options: ['A. Từ 3.0 đến 4.0.', 'B. Từ 5.5 đến 6.5.', 'C. Từ 8.0 đến 9.0.', 'D. Từ 10.0 đến 12.0.'], correct: 1, explain: 'pH từ 5.5 - 6.5 giúp rễ hấp thụ tối ưu các ion khoáng.' },
-                    { id: 17, text: 'Câu 17: Thiết bị nào sau đây dùng để đo nhanh nồng độ chất dinh dưỡng hòa tan (TDS hoặc độ dẫn điện EC) trong dung dịch thủy canh?', options: ['A. Nhiệt kế thủy ngân.', 'B. Bút đo EC hoặc bút đo TDS.', 'C. Kính hiển vi điện tử.', 'D. Ống đong chia độ.'], correct: 1, explain: 'Bút đo EC/TDS dùng kiểm tra nồng độ dinh dưỡng thủy canh.' },
-                    { id: 18, text: 'Câu 18: Thí nghiệm đặt túi nylon bọc cành cây có ngắt hết lá so với cành cây giữ nguyên lá nhằm mục đích gì?', options: ['A. Làm đối chứng để chứng minh lá là cơ quan thoát hơi nước chủ yếu.', 'B. So sánh tốc độ quang hợp.', 'C. Kiểm tra lượng CO2 tiêu thụ.', 'D. Đo nhiệt độ cành cây.'], correct: 1, explain: 'Cành ngắt lá làm đối chứng, chứng minh lá chứa khí khổng thoát nước.' }
+                    { id: 1, text: 'Câu 1: Trong thí nghiệm chứng minh sự hút nước ở rễ, để tránh nước trong cốc bị bốc hơi sau khi cắm cây, ta cần', options: ['A. đặt cốc chứa cây ở nơi có ánh sáng.', 'B. đặt cốc chứa cây ở nơi không có ánh sáng.', 'C. đậy kín miệng cốc.', 'D. đậy kín miệng cốc và đặt ở nơi không có ánh sáng.'], correct: 2, explain: 'Đậy kín miệng cốc để đảm bảo nước chỉ giảm do rễ cây hút.' },
+                    { id: 2, text: 'Câu 2: Trong thí nghiệm chứng minh sự thoát hơi nước ở lá, tại sao phải cắt bỏ hết lá (chỉ còn lại rễ, thân, cành) ở một chậu thí nghiệm?', options: ['A. Để cây không hút được nước do thiếu lực kéo từ quá trình thoát hơi nước.', 'B. Để ngăn chặn quá trình vận chuyển nước trong thân.', 'C. Để tăng cường thoát hơi nước qua các bộ phận khác của cây (rễ, thân, cành).', 'D. Để ngăn quá trình thoát hơi nước của cây.'], correct: 3, explain: 'Chậu cắt bỏ lá làm đối chứng chứng minh lá là cơ quan thoát hơi nước chính.' },
+                    { id: 3, text: 'Câu 3: Ở thí nghiệm chứng minh sự vận chuyển nước trong thân, khi ta cắm cành hoa hồng trắng vào ly nước có màu xanh, sau khoảng 5 giờ, quan sát bông hoa, ta sẽ thấy bông hoa có màu:', options: ['A. Hồng', 'B. Trắng', 'C. Đỏ', 'D. Xanh'], correct: 3, explain: 'Mạch gỗ vận chuyển nước màu xanh lên làm cánh hoa đổi thành màu xanh.' },
+                    { id: 4, text: 'Câu 4: Khi tưới nước chăm sóc cây, tưới nước hợp lí sẽ', options: ['A. làm cây mất cân bằng nước.', 'B. giúp cây ra hoa trái mùa vụ.', 'C. đảm bảo trạng thái cân bằng nước trong cây.', 'D. giúp cây sinh trưởng tốt mà không cần bổ sung chất dinh dưỡng.'], correct: 2, explain: 'Tưới nước hợp lí đảm bảo cân bằng nước cho cây sinh trưởng tốt.' },
+                    { id: 5, text: 'Câu 5: Để quan sát khí khổng, cần tách lớp biểu bì ở mặt nào của lá? Vì sao?', options: ['A. Tách lớp biểu bì ở mặt dưới vì ở mặt dưới có nhiều khí khổng nên dễ quan sát.', 'B. Tách lớp biểu bì ở mặt trên vì ở mặt trên có ít khí khổng nên dễ quan sát.', 'C. Tách lớp biểu bì ở mặt dưới vì tế bào khí khổng ở mặt trên có thành tế bào dày hơn nên dễ quan sát.', 'D. Tách lớp biểu bì ở mặt trên vì tế bào khí khổng ở mặt dưới có thành tế bào mỏng hơn nên khó quan sát.'], correct: 0, explain: 'Ở hầu hết lá cây trên cạn, mặt dưới chứa nhiều khí khổng hơn.' },
+                    { id: 6, text: 'Câu 6: Thủy canh và khí canh là phương pháp', options: ['A. trồng cây trên đất, dinh dưỡng được cung cấp cho cây dưới dạng các chất khoáng hòa tan trong dung dịch trồng cây.', 'B. trồng cây không cần đất, dinh dưỡng được cung cấp cho cây dưới dạng các chất khoáng hòa tan trong dung dịch trồng cây.', 'C. trồng cây trên đất, dinh dưỡng được cung cấp cho cây dưới dạng phân bón.', 'D. trồng cây không cần đất, chỉ cần tưới nước cho cây.'], correct: 1, explain: 'Thủy canh và khí canh là phương pháp trồng cây không dùng đất.' },
+                    { id: 7, text: 'Câu 7: Hình sau mô tả thí nghiệm gì?', imgType: 'hut-nuoc', options: ['A. Thí nghiệm chứng minh sự hút nước ở rễ', 'B. Thí nghiệm chứng minh sự vận chuyển nước trong thân', 'C. Thí nghiệm chứng minh sự thoát hơi nước ở lá', 'D. Thí nghiệm chứng minh có thể trồng cây mà không cần đất'], correct: 0, explain: 'Hình thể hiện thí nghiệm đo mức nước giảm do rễ hút nước.' },
+                    { id: 8, text: 'Câu 8: Dấu “?” trong hình sau nói đến chất gì?', imgType: 'hut-nuoc', options: ['A. Nước', 'B. Phân bón', 'C. Đạm NH4+', 'D. Dung dịch thủy canh'], correct: 0, explain: 'Dấu ? chỉ vào lớp nước cất ban đầu đậy kín.' },
+                    { id: 9, text: 'Câu 9: Trong thí nghiệm chứng minh sự hút nước ở rễ, kết quả thí nghiệm thể hiện ở cốc (2) và (3) trong hình dưới. Phát biểu nào sau đây đúng khi nói về cốc (2) và cốc (3)?', imgType: 'hut-nuoc', options: ['A. Cốc (3) là cốc chứa cây vừa cắm vào. Cốc (2) là cốc đã cắm cây sau 3 ngày', 'B. Cốc (2) là cốc chứa cây vừa cắm vào. Cốc (3) là cốc đã cắm cây sau 3 ngày', 'C. Mực nước ở cốc (3) hạ xuống là do nắp cốc bị hở, nước bay hơi', 'D. Mực nước ở cốc (3) hạ xuống là do có sự thoát hơi nước qua thân cây'], correct: 1, explain: 'Cốc (2) nước dâng cao lúc bắt đầu, cốc (3) nước hạ thấp sau 3 ngày rễ hút.' },
+                    { id: 10, text: 'Câu 10: Hình ảnh sau mô tả thí nghiệm:', imgType: 'thoat-hoi-nuoc', options: ['A. Thí nghiệm chứng minh sự hút nước ở rễ', 'B. Thí nghiệm chứng minh sự vận chuyển nước trong thân', 'C. Thí nghiệm chứng minh sự thoát hơi nước ở lá', 'D. Thí nghiệm chứng minh có thể trồng cây mà không cần đất'], correct: 2, explain: 'Chuông thủy tinh đậy chậu cây ngưng tụ các giọt nước thoát ra từ lá.' },
+                    { id: 11, text: 'Câu 11: Hình ảnh sau nói về thí nghiệm chứng minh sự thoát hơi nước. Chúng ta có thể thay chuông thủy tinh trong hình bằng:', imgType: 'thoat-hoi-nuoc', options: ['A. Túi nilon màu trắng, trong suốt', 'B. Tấm vải trắng', 'C. Thùng carton trắng', 'D. Hộp bằng giấy màu trắng'], correct: 0, explain: 'Có thể thay chuông bằng túi nilon trong suốt để quan sát giọt nước.' },
+                    { id: 12, text: 'Câu 12: Nguyên lí của thí nghiệm chứng minh quá trình hấp thụ nước ở rễ là dựa vào', options: ['A. sự thay đổi chiều cao của cây trước và sau thời gian thí nghiệm.', 'B. sự thay đổi màu sắc của giấy cobalt chloride trước và sau thời gian thí nghiệm.', 'C. sự thay đổi màu của nước trong ống nghiệm trước và sau thời gian thí nghiệm.', 'D. sự thay đổi lượng nước cung cấp cho cây trước và sau thời gian thí nghiệm.'], correct: 3, explain: 'Đo sự thay đổi mức nước/lượng nước trong cốc sau thời gian thí nghiệm.' },
+                    { id: 13, text: 'Câu 13: Đây là tế bào:', imgType: 'khi-khong', options: ['A. Khí khổng', 'B. Lông hút', 'C. Biểu bì lá', 'D. Hạt phấn'], correct: 0, explain: 'Ảnh kính hiển vi soi tế bào hạt đậu tạo thành lỗ khí khổng.' },
+                    { id: 14, text: 'Câu 14: Khi quan sát tế bào khí khổng dưới kính hiển vi, người ta hay nhỏ 1 giọt nước có pha màu xanh methylene. Màu xanh methylene có tác dụng:', options: ['A. Giúp quan sát khí khổng rõ hơn', 'B. Giúp tiêu diệt vi khuẩn bám trên bề mặt tế bào khí khổng', 'C. Giúp khí khổng mở ra, dễ quan sát', 'D. Giúp khí khổng co lại, dễ quan sát'], correct: 0, explain: 'Phẩm nhuộm xanh methylene bắt màu tế bào giúp tăng độ tương phản rõ nét.' },
+                    { id: 15, text: 'Câu 15: Người ta làm thí nghiệm như trong hình, nhỏ giọt mực đỏ vào Cốc A, mực vàng vào cốc B, mực xanh lá vào cốc C, mực xanh dương vào cốc D. Em thử dự đoán, sau 2 ngày cành hoa cắm ở cốc nào sẽ chuyển thành màu vàng?', imgType: 'hoa-cam-chuong', options: ['A. Cốc A', 'B. Cốc B', 'C. Cốc C', 'D. Cốc D'], correct: 1, explain: 'Hoa ngâm cốc B chứa mực màu vàng sẽ hút và đổi thành màu vàng.' },
+                    { id: 16, text: 'Câu 16: Trong thí nghiệm chứng minh quá trình vận chuyển nước ở thân, có thể sử dụng hóa chất nào dưới đây?', options: ['A. Dung dịch H2SO4.', 'B. Dung dịch màu thực phẩm.', 'C. Dung dịch KOH.', 'D. Dung dịch NaOH.'], correct: 1, explain: 'Sử dụng dung dịch màu thực phẩm an toàn để nhuộm dòng mạch gỗ.' },
+                    { id: 17, text: 'Câu 17: Vì sao trong thí nghiệm chứng minh quá trình vận chuyển nước ở thân nên lựa chọn hoa có màu trắng?', options: ['A. Vì hoa có màu trắng sẽ giúp dễ dàng quan sát kết quả hơn các loại hoa màu khác.', 'B. Vì hoa có màu trắng có tốc độ thoát hơi nước cao hơn các loại hoa màu khác.', 'C. Vì hoa có màu trắng có tốc độ vận chuyển nước cao hơn các loại hoa màu khác.', 'D. Vì hoa có màu trắng có tốc độ hấp thụ nước cao hơn các loại hoa màu khác.'], correct: 0, explain: 'Hoa màu trắng làm nổi bật màu thực phẩm dâng lên theo mạch gỗ.' },
+                    { id: 18, text: 'Câu 18: Để quan sát rõ tế bào khí khổng, cần phải lưu ý điều gì khi tách lớp biểu bì?', options: ['A. Cần phải tách lớp biểu bì thật ngắn.', 'B. Cần phải tách lớp biểu bì thật dài.', 'C. Cần phải tách lớp biểu bì thật dày.', 'D. Cần phải tách lớp biểu bì thật mỏng.'], correct: 3, explain: 'Tách thật mỏng để ánh sáng kính hiển vi truyền qua được.' }
                 ]
             },
             bai4: {
                 id: 'bai4',
                 title: 'BÀI 4: QUANG HỢP Ở THỰC VẬT',
                 questions: [
-                    { id: 1, text: 'Câu 1: Phương trình tổng quát của quá trình quang hợp ở thực vật là:', options: ['A. 6CO2 + 12H2O + Ánh sáng -> C6H12O6 + 6O2 + 6H2O.', 'B. C6H12O6 + 6O2 -> 6CO2 + 6H2O + Năng lượng.', 'C. 6CO2 + 6H2O + Ánh sáng -> C6H12O6 + 6O2.', 'D. 6CO2 + 12H2O -> C6H12O6 + 6O2.'], correct: 0, explain: 'Phương trình cân bằng chuẩn quang hợp: 6CO2 + 12H2O -> C6H12O6 + 6O2 + 6H2O.' },
-                    { id: 2, text: 'Câu 2: Hệ sắc tố quang hợp ở thực vật xanh gồm hai nhóm chính là', options: ['A. diệp lục (chlorophyll) và carotenoid.', 'B. chlorophyll a và chlorophyll b.', 'C. carotene và xanthophyll.', 'D. anthocyanin và phycoerythrin.'], correct: 0, explain: 'Hệ sắc tố gồm Diệp lục (Chlorophyll a, b) và Carotenoid (carotene, xanthophyll).' },
-                    { id: 3, text: 'Câu 3: Sắc tố quang hợp chủ yếu trực tiếp tham gia chuyển hóa quang năng thành hóa năng ở trung tâm phản ứng là', options: ['A. Chlorophyll a.', 'B. Chlorophyll b.', 'C. Carotene.', 'D. Xanthophyll.'], correct: 0, explain: 'Chlorophyll a ở trung tâm phản ứng trực tiếp chuyển hóa quang năng.' },
-                    { id: 4, text: 'Câu 4: Pha sáng của quang hợp diễn ra ở cấu trúc nào của lục lạp?', options: ['A. Chất nền (stroma).', 'B. Màng thylakoid (grana).', 'C. Màng ngoài lục lạp.', 'D. Màng trong lục lạp.'], correct: 1, explain: 'Pha sáng diễn ra trên màng thylakoid nơi chứa hệ sắc tố hấp thụ ánh sáng.' },
-                    { id: 5, text: 'Câu 5: Sản phẩm nào của pha sáng được chuyển sang pha tối cung cấp cho chu trình Calvin?', options: ['A. ATP và NADPH.', 'B. O2 và H2O.', 'C. Glucose và CO2.', 'D. C6H12O6 và ATP.'], correct: 0, explain: 'Pha sáng cung cấp ATP và NADPH cho pha tối khử CO2 thành carbohydrate.' },
-                    { id: 6, text: 'Câu 6: Nguồn gốc của phân tử oxygen (O2) giải phóng trong quang hợp là từ', options: ['A. quá trình phân li nước (photolysis) ở pha sáng.', 'B. quá trình khử CO2 ở pha tối.', 'C. sự phân giải glucose.', 'D. quá trình thoát hơi nước qua khí khổng.'], correct: 0, explain: 'Quang phân li nước ở pha sáng giải phóng O2.' },
-                    { id: 7, text: 'Câu 7: Pha tối (chu trình Calvin) của quang hợp diễn ra ở bộ phận nào của lục lạp?', options: ['A. Chất nền (stroma).', 'B. Màng thylakoid.', 'C. Nhân tế bào.', 'D. Tế bào chất.'], correct: 0, explain: 'Pha tối diễn ra trong chất nền stroma của lục lạp.' },
-                    { id: 8, text: 'Câu 8: Sản phẩm ổn định đầu tiên trong chu trình Calvin ở thực vật C3 là hợp chất mấy carbon?', options: ['A. 3 carbon (PGA - 3-phosphoglycerate).', 'B. 4 carbon (OAA).', 'C. 5 carbon (RuBP).', 'D. 6 carbon (Glucose).'], correct: 0, explain: 'Thực vật C3 có sản phẩm đầu tiên là hợp chất 3C.' },
-                    { id: 9, text: 'Câu 9: Thực vật C4 sống ở vùng khí hậu nào và có đặc điểm gì nổi bật?', options: ['A. Khí hậu nóng ẩm kéo dài; cố định CO2 qua hợp chất 4C ở tế bào bao bó mạch.', 'B. Khí hậu khô hạn sa mạc; mở khí khổng ban đêm.', 'C. Khí hậu ôn đới lạnh; quang hợp mạnh ở nhiệt độ thấp.', 'D. Sống ngập nước; không có lục lạp ở tế bào biểu bì.'], correct: 0, explain: 'Thực vật C4 (ngô, mía, kê) sống ở vùng nhiệt đới nóng ẩm, hiệu suất quang hợp cao.' },
-                    { id: 10, text: 'Câu 10: Thực vật CAM có điểm thích nghi đặc trưng nào để sinh trưởng ở vùng khô hạn sa mạc?', options: ['A. Khí khổng mở ban đêm để lấy CO2 và đóng ban ngày để tránh mất nước.', 'B. Không thực hiện pha sáng, chỉ quang hợp ban đêm.', 'C. Lá biến thành gai hoàn toàn không có diệp lục.', 'D. Hấp thụ nước trực tiếp qua bề mặt lá.'], correct: 0, explain: 'Thực vật CAM (dứa, xương rồng, thanh long) mở khí khổng ban đêm để lấy CO2.' },
-                    { id: 11, text: 'Câu 11: Điểm bù ánh sáng là cường độ ánh sáng tại đó', options: ['A. cường độ quang hợp bằng cường độ hô hấp.', 'B. cường độ quang hợp đạt giá trị cực đại.', 'C. cây ngừng hẳn quá trình quang hợp.', 'D. lượng O2 thải ra bằng không do cây không hô hấp.'], correct: 0, explain: 'Điểm bù ánh sáng là khi quang hợp bù đắp vừa đủ cho hô hấp.' },
-                    { id: 12, text: 'Câu 12: Nồng độ CO2 trong khí quyển thích hợp nhất cho quang hợp thường dao động ở mức khoảng', options: ['A. 0,03%.', 'B. 0,3%.', 'C. 3,0%.', 'D. 30%.'], correct: 0, explain: 'Nồng độ CO2 bình thường trong khí quyển khoảng 0.03%.' },
-                    { id: 13, text: 'Câu 13: Nhiệt độ tối ưu cho quang hợp ở đa số thực vật ôn đới thường nằm trong khoảng nào?', options: ['A. 25°C - 30°C.', 'B. 10°C - 15°C.', 'C. 40°C - 45°C.', 'D. 0°C - 5°C.'], correct: 0, explain: 'Nhiệt độ tối ưu cho quang hợp vùng ôn đới trung bình 25-30°C.' },
-                    { id: 14, text: 'Câu 14: Sắc tố nào hấp thụ ánh sáng chủ yếu ở vùng quang phổ màu đỏ và xanh tím?', options: ['A. Chlorophyll a và b.', 'B. Carotenoid.', 'C. Anthocyanin.', 'D. Phycoerythrin.'], correct: 0, explain: 'Diệp lục hấp thụ mạnh ở vùng ánh sáng đỏ và xanh tím.' },
-                    { id: 15, text: 'Câu 15: Vai trò của nước trong quá trình quang hợp là gì?', options: ['A. Là nguyên liệu trực tiếp cung cấp electron, proton và giải phóng O2.', 'B. Chỉ làm dung môi hòa tan khoáng chất.', 'C. Cung cấp năng lượng ATP trực tiếp cho pha tối.', 'D. Giữ cho lá cây luôn tươi.'], correct: 0, explain: 'Nước cung cấp e- cho quang hệ II và giải phóng O2.' },
-                    { id: 16, text: 'Câu 16: Nhóm thực vật nào sau đây có năng suất sinh học cao nhất trong điều kiện ánh sáng mạnh và nhiệt độ cao?', options: ['A. Thực vật C4.', 'B. Thực vật C3.', 'C. Thực vật thủy sinh.', 'D. Rêu và địa y.'], correct: 0, explain: 'Thực vật C4 không có hô hấp sáng, năng suất cao ở vùng nhiệt đới.' },
-                    { id: 17, text: 'Câu 17: Hô hấp sáng là quá trình', options: ['A. tiêu tốn O2 và giải phóng CO2 ngoài ánh sáng xảy ra ở thực vật C3.', 'B. tạo ra nhiều ATP cung cấp cho tế bào.', 'C. chỉ xảy ra ở thực vật CAM vào ban đêm.', 'D. tổng hợp thêm nhiều đường glucose cho cây.'], correct: 0, explain: 'Hô hấp sáng xảy ra ở TV C3 khi CO2 cạn kiệt, tiêu hao 30-50% sản phẩm quang hợp.' },
-                    { id: 18, text: 'Câu 18: Biện pháp kỹ thuật nào sau đây giúp tăng năng suất cây trồng thông qua quang hợp?', options: ['A. Trồng cây với mật độ hợp lý, cung cấp đủ nước, bón phân cân đối và chiếu sáng nhân tạo.', 'B. Che kín hoàn toàn ánh sáng mặt trời để lá không bị héo.', 'C. Giảm tối đa lượng CO2 trong nhà kính.', 'D. Tưới nước muối đậm đặc cho rễ.'], correct: 0, explain: 'Tăng diện tích lá, chiếu sáng, tưới nước, bón phân tăng năng suất.' },
-                    { id: 19, text: 'Câu 19: Thành phần nào không thuộc về chu trình Calvin?', options: ['A. Giai đoạn cố định CO2.', 'B. Giai đoạn khử PGA thành G3P.', 'C. Giai đoạn tái sinh chất nhận RuBP.', 'D. Giai đoạn quang phân li nước tạo O2.'], correct: 3, explain: 'Quang phân li nước thuộc pha sáng, không thuộc chu trình Calvin.' },
-                    { id: 20, text: 'Câu 20: Tế bào bao bó mạch ở lá thực vật C4 có đặc điểm gì khác biệt so với thực vật C3?', options: ['A. Có chứa các hạt lục lạp phát triển thực hiện chu trình Calvin.', 'B. Không có lục lạp.', 'C. Chỉ chứa ti thể làm nhiệm vụ hô hấp.', 'D. Tế bào có kích thước rất nhỏ không có nhân.'], correct: 0, explain: 'TV C4 có cấu trúc giải phẫu Kranz với tế bào bao bó mạch chứa lục lạp cố định đường.' }
+                    { id: 1, text: 'Câu 1: Trong PTTQ của quang hợp (1) và (2) là những chất nào?\n6 (1) + 12 H2O → (2) + 6O2 + 6H2O', options: ['A. (1) CO2, (2) C6H12O6.', 'B. (1) C6H12O6, (2) CO2.', 'C. (1) O2, (2) C6H12O6.', 'D. (1) O2, (2) CO2.'], correct: 0, explain: '6CO2 + 12H2O → C6H12O6 + 6O2 + 6H2O.' },
+                    { id: 2, text: 'Câu 2: Sản phẩm của pha sáng gồm có:', options: ['A. ATP, NADPH và O2', 'B. ATP, NADPH và CO2', 'C. ATP, NADP+ và O2', 'D. ATP, NADPH.'], correct: 0, explain: 'Pha sáng tạo ATP, NADPH và O2.' },
+                    { id: 3, text: 'Câu 3: Vai trò nào dưới đây không phải của quang hợp?', options: ['A. Tích lũy năng lượng.', 'B. Tạo chất hữu cơ.', 'C. Điều hòa nhiệt độ của không khí.', 'D. Giải phóng năng lượng cung cấp cho mọi hoạt động sống.'], correct: 3, explain: 'D là vai trò của hô hấp, không phải của quang hợp.' },
+                    { id: 4, text: 'Câu 4: Oxygen trong quang hợp có nguồn gốc từ đâu?', options: ['A. H2O (quang phân li H2O).', 'B. Pha sáng.', 'C. Pha tối.', 'D. Chu trình Canvin.'], correct: 0, explain: 'O2 sinh ra từ quá trình quang phân li nước.' },
+                    { id: 5, text: 'Câu 5: Chất nhận CO2 đầu tiên ở thực vật C3:', options: ['A. Ribulôzơ 1,5 điP.', 'B. APG.', 'C. AlPG.', 'D. C6H12O6.'], correct: 0, explain: 'RuBP (Ribulôzơ 1,5 điP) là chất nhận CO2 đầu tiên ở C3.' },
+                    { id: 6, text: 'Câu 6: Điểm bù ánh sáng là gì?', options: ['A. Là điểm mà tại đó cường độ quang hợp lớn hơn cường độ hô hấp.', 'B. Là điểm mà tại đó cường độ quang hợp nhỏ hơn cường độ hô hấp.', 'C. Là điểm mà tại đó cường độ quang hợp bằng cường độ hô hấp.', 'D. Là điểm mà tại đó cường độ quang hợp không tăng thêm cho dù cường độ ánh sáng tăng.'], correct: 2, explain: 'Điểm bù ánh sáng: cường độ quang hợp = cường độ hô hấp.' },
+                    { id: 7, text: 'Câu 7: Nồng độ CO2 thấp nhất mà cây quang hợp được là:', options: ['A. 0.008-0.1%.', 'B. 0.008-0.01%.', 'C. Lớn hơn 0.008-0.01%.', 'D. Nhỏ hơn 0.008-0.01%'], correct: 1, explain: 'Điểm bù CO2 thường nằm trong khoảng 0.008% - 0.01%.' },
+                    { id: 8, text: 'Câu 8: Trong lục lạp, pha tối diễn ra ở', options: ['A. màng ngoài.', 'B. màng trong.', 'C. tilacôit.', 'D. chất nền (strôma).'], correct: 3, explain: 'Pha tối diễn ra trong chất nền (stroma) của lục lạp.' },
+                    { id: 9, text: 'Câu 9: Ở thực vật CAM, khí khổng', options: ['A. đóng vào ban ngày và mở vào ban đêm.', 'B. chỉ mở ra khi hoàng hôn.', 'C. chỉ đóng vào giữa trưa.', 'D. đóng vào ban đêm và mở vào ban ngày.'], correct: 0, explain: 'Thực vật CAM mở khí khổng ban đêm để tiết kiệm nước.' },
+                    { id: 10, text: 'Câu 10: Trong lục lạp không có loại sắc tố quang hợp nào?', options: ['A. Diệp lục a.', 'B. Chlorophyll b.', 'C. Diệp lục c.', 'D. Carotene.'], correct: 2, explain: 'Thực vật bậc cao chỉ chứa chlorophyll a, b và carotenoid.' },
+                    { id: 11, text: 'Câu 11: Những cây thuộc nhóm thực vật CAM là:', options: ['A. Lúa, khoai, sắn, đậu.', 'B. Ngô, mía, cỏ lồng vực, cỏ gấu.', 'C. Dứa, xương rồng, thuốc bỏng.', 'D. Cam, quít, bưởi.'], correct: 2, explain: 'Thực vật CAM gồm dứa, xương rồng, thuốc bỏng, thanh long...' },
+                    { id: 12, text: 'Câu 12: Đặc điểm hoạt động của khí khổng ở thực vật CAM là:', options: ['A. Đóng vào ban ngày và mở ra ban đêm.', 'B. Chỉ mở ra khi hoàng hôn.', 'C. Chỉ đóng vào giữa trưa.', 'D. Đóng vào ban đêm và mở ra ban ngày.'], correct: 0, explain: 'Đóng ban ngày và mở ban đêm.' },
+                    { id: 13, text: 'Câu 13: Ánh sáng nào sau đây có hiệu quả nhất đối với quang hợp?', options: ['A. Xanh lục và vàng.', 'B. Xanh tím', 'C. Da cam và đỏ', 'D. Xanh tím và đỏ'], correct: 3, explain: 'Hệ sắc tố hấp thụ mạnh nhất miền ánh sáng xanh tím và đỏ.' },
+                    { id: 14, text: 'Câu 14: Ý nào sau đây đúng khi nói về cấu trúc của lá cây thích nghi với chức năng quang hợp?', options: ['A. Dạng bản mỏng, luôn hướng vuông góc với tia sáng mặt trời.', 'B. Lục lạp chỉ phân bố ở tế bào mô xốp.', 'C. Bản dày để tránh sự đốt nóng của ánh sáng mặt trời.', 'D. Khí khổng phân bố chủ yếu ở mặt trên để lấy nguyên liệu CO2 dễ dàng'], correct: 0, explain: 'Lá dạng bản mỏng diện tích tiếp xúc lớn, đón ánh sáng tốt.' },
+                    { id: 15, text: 'Câu 15: Khi nói về pha sáng của quang hợp ở thực vật, phát biểu sau đây sai?', options: ['A. Quang phân li nước diễn ra ở màng thylakoid của lục lạp.', 'B. Sản phẩm của pha sáng cung cấp cho pha tối là NADPH và ATP.', 'C. Pha sáng chuyển hóa năng lượng của ánh sáng thành năng lượng trong ATP và NADPH.', 'D. Pha sáng là quá trình khử CO2 để tạo NADPH và ATP.'], correct: 3, explain: 'D sai vì quá trình khử CO2 thuộc về pha tối.' },
+                    { id: 16, text: 'Câu 16: Thực vật nào sống trong điều kiện nóng ẩm kéo dài: ánh sáng mạnh, nhiệt độ cao, nồng độ CO2 giảm, nồng độ O2 tăng?', options: ['A. C4.', 'B. C3.', 'C. CAM.', 'D. C3, CAM.'], correct: 0, explain: 'Thực vật C4 thích nghi hoàn hảo với điều kiện nóng ẩm kéo dài.' },
+                    { id: 17, text: 'Câu 17: Trong môi trường khí hậu nhiệt đới, hiệu suất quang hợp ở thực vật C3 thấp hơn nhiều so với ở thực vật C4. Giải thích nào sau đây sai?', options: ['A. Thực vật C4 có điểm bão hòa ánh sáng thấp hơn thực vật C3.', 'B. Điểm bão hòa nhiệt độ của cây C4 cao hơn cây C3.', 'C. Thực vật C3 có hô hấp sáng, còn thực vật C4 thì không.', 'D. Thực vật C4 có 2 loại lục lạp thực hiện 2 chức năng: cố định CO2 sơ cấp và tổng hợp chất hữu cơ.'], correct: 0, explain: 'A sai vì C4 có điểm bão hòa ánh sáng rất cao (gần như không bão hòa).' },
+                    { id: 18, text: 'Câu 18: Thực vật C4 ưu việt hơn thực vật C3 bởi những đặc điểm nào sau đây?\nI. Cường độ quang hợp cao hơn.  II. Điểm bù CO2 cao hơn.\nIII. Điểm bão hòa ánh sáng cao hơn.  IV. Thoát hơi nước mạnh hơn.', options: ['A. I, III.', 'B. I, II, III.', 'C. I, III, IV.', 'D. I, II, III, IV.'], correct: 0, explain: 'C4 có CĐQH cao hơn và điểm bão hòa ánh sáng cao hơn C3.' },
+                    { id: 19, text: 'Câu 19: Trong giờ thực hành chiết rút diệp lục và carotenoid, 4 nhóm học sinh dùng mẫu vật và dung môi như hình. Dự đoán nào sau đây sai?', options: ['A. Dịch chiết ở cốc thí nghiệm của nhóm II có màu vàng.', 'B. Dịch chiết ở cốc thí nghiệm của nhóm III và nhóm IV đều có màu đỏ', 'C. Dịch chiết ở cốc thí nghiệm của nhóm I có màu xanh lục.', 'D. Dịch chiết ở tất cả các cốc đối chứng đều không có màu.'], correct: 1, explain: 'B sai vì Cà chua chưa chín (nhóm IV) chứa diệp lục nên không thể có màu đỏ.' },
+                    { id: 20, text: 'Câu 20: Có bao nhiêu giải thích sau đây đúng về 3 nhóm C3, C4, CAM?\nI. Nhóm C3 quang hợp điều kiện bình thường.\nII. Nhóm C4 nồng độ CO2 thấp có cố định 2 lần.\nIII. Nhóm C4 cố định CO2 lần 1 lấy nhanh CO2, lần 2 trong chu trình Calvin.\nIV. Nhóm thực vật CAM đóng khí khổng ban ngày, cố định CO2 ban đêm.', options: ['A. 1.', 'B. 2.', 'C. 3.', 'D. 4.'], correct: 3, explain: 'Cả 4 phát biểu I, II, III, IV đều chính xác.' }
                 ]
             },
             bai6: {
                 id: 'bai6',
                 title: 'BÀI 6: HÔ HẤP Ở THỰC VẬT',
                 questions: [
-                    { id: 1, text: 'Câu 1: Bản chất của quá trình hô hấp ở thực vật là', options: ['A. quá trình oxy hóa các hợp chất hữu cơ thành CO2 và H2O kèm theo giải phóng năng lượng.', 'B. quá trình tổng hợp chất hữu cơ từ CO2 và nước.', 'C. quá trình hấp thụ khí oxygen và thải khí nitrogen.', 'D. quá trình phân giải kị khí tạo ra rượu ethyl.'], correct: 0, explain: 'Hô hấp là quá trình oxy hóa sinh học phân giải chất hữu cơ thành CO2, H2O và ATP.' },
-                    { id: 2, text: 'Câu 2: Phương trình tổng quát của quá trình hô hấp hiếu khí ở thực vật là:', options: ['A. C6H12O6 + 6O2 -> 6CO2 + 6H2O + Năng lượng (ATP + Nhiệt).', 'B. 6CO2 + 6H2O + Ánh sáng -> C6H12O6 + 6O2.', 'C. C6H12O6 -> 2C2H5OH + 2CO2 + Năng lượng.', 'D. C6H12O6 -> 2C3H6O3 (Axit lactic).'], correct: 0, explain: 'Phương trình hô hấp hiếu khí chuẩn.' },
-                    { id: 3, text: 'Câu 3: Các giai đoạn chính của quá trình hô hấp hiếu khí diễn ra theo thứ tự nào?', options: ['A. Đường phân -> Chu trình Krebs -> Chuỗi chuyền electron.', 'B. Chu trình Krebs -> Đường phân -> Chuỗi chuyền electron.', 'C. Chuỗi chuyền electron -> Đường phân -> Chu trình Krebs.', 'D. Đường phân -> Lên men -> Chu trình Krebs.'], correct: 0, explain: 'Thứ tự hô hấp hiếu khí: Đường phân (tế bào chất) -> Chu trình Krebs -> Chuỗi chuyền electron (ti thể).' },
-                    { id: 4, text: 'Câu 4: Giai đoạn đường phân diễn ra ở bộ phận nào trong tế bào?', options: ['A. Tế bào chất (Cytoplasm).', 'B. Chất nền ti thể.', 'C. Màng trong ti thể.', 'D. Nhân tế bào.'], correct: 0, explain: 'Đường phân diễn ra trong tế bào chất, không cần oxygen.' },
-                    { id: 5, text: 'Câu 5: Kết thúc giai đoạn đường phân từ 1 phân tử glucose, tế bào thu được gì?', options: ['A. 2 phân tử pyruvate, 2 ATP và 2 NADH.', 'B. 6 phân tử CO2 và 38 ATP.', 'C. Rượu ethyl và CO2.', 'D. Axit lactic và nước.'], correct: 0, explain: 'Đường phân bẻ đôi glucose (6C) thành 2 pyruvate (3C) và lãi 2 ATP, 2 NADH.' },
-                    { id: 6, text: 'Câu 6: Chu trình Krebs diễn ra ở đâu trong tế bào?', options: ['A. Chất nền ti thể (Matrix).', 'B. Tế bào chất.', 'C. Màng thylakoid.', 'D. Khoảng gian màng ti thể.'], correct: 0, explain: 'Chu trình Krebs diễn ra trong chất nền ti thể.' },
-                    { id: 7, text: 'Câu 7: Năng lượng (ATP) được tạo ra nhiều nhất ở giai đoạn nào của hô hấp hiếu khí?', options: ['A. Chuỗi chuyền electron màng ti thể.', 'B. Giai đoạn đường phân.', 'C. Quá trình tổng hợp pyruvate.', 'D. Lên men lactic.'], correct: 0, explain: 'Chuỗi chuyền electron ti thể tạo ra khoảng 32-34 ATP.' },
-                    { id: 8, text: 'Câu 8: Khi thiếu oxygen, thực vật (hoặc hạt ngâm nước) sẽ chuyển sang quá trình nào?', options: ['A. Lên men (kị khí) tạo rượu ethyl hoặc axit lactic.', 'B. Tăng cường quang hợp.', 'C. Tăng tốc chu trình Krebs.', 'D. Ngừng hoàn toàn mọi hoạt động chuyển hóa.'], correct: 0, explain: 'Thiếu O2, tế bào chuyển sang lên men kị khí.' },
-                    { id: 9, text: 'Câu 9: Bào quan nào được mệnh danh là "nhà máy năng lượng" của tế bào thực vật chịu trách nhiệm chính cho hô hấp hiếu khí?', options: ['A. Ti thể (Mitochondrion).', 'B. Lục lạp (Chloroplast).', 'C. Lưới nội chất.', 'D. Không bào.'], correct: 0, explain: 'Ti thể là bào quan hô hấp hiếu khí tạo ATP.' },
-                    { id: 10, text: 'Câu 10: Mối quan hệ giữa quang hợp và hô hấp được ví như hai quá trình', options: ['A. trái ngược nhưng phụ thuộc lẫn nhau, thống nhất trong chu trình sống của thực vật.', 'B. độc lập hoàn toàn không ảnh hưởng gì nhau.', 'C. cạnh tranh nguồn nguyên liệu glucose.', 'D. chỉ diễn ra ở ban ngày.'], correct: 0, explain: 'Quang hợp tạo chất hữu cơ và O2 cho hô hấp; hô hấp tạo CO2 và nước cho quang hợp.' },
-                    { id: 11, text: 'Câu 11: Nhiệt độ tối ưu cho quá trình hô hấp ở thực vật thường dao động trong khoảng nào?', options: ['A. 30°C - 35°C.', 'B. 0°C - 5°C.', 'C. 45°C - 50°C.', 'D. 60°C - 70°C.'], correct: 0, explain: 'Nhiệt độ tối ưu cho hô hấp khoảng 30-35°C.' },
-                    { id: 12, text: 'Câu 12: Nồng độ oxygen trong môi trường ảnh hưởng đến hô hấp như thế nào?', options: ['A. Nồng độ O2 giảm xuống dưới 5% sẽ ức chế hô hấp hiếu khí và kích thích lên men gây hại.', 'B. Nồng độ O2 càng cao thì hô hấp càng tăng vô hạn.', 'C. O2 không có vai trò gì trong hô hấp.', 'D. O2 chỉ ảnh hưởng đến giai đoạn đường phân.'], correct: 0, explain: 'O2 thấp dưới 5% gây hô hấp kị khí bất lợi cho nông sản.' },
-                    { id: 13, text: 'Câu 13: Hàm lượng nước trong hạt giống đem bảo quản cần đạt tiêu chuẩn nào để hạn chế tối đa hô hấp?', options: ['A. Dưới 11% - 13%.', 'B. Từ 30% - 40%.', 'C. Khoảng 50%.', 'D. Nước ngập hạt hoàn toàn.'], correct: 0, explain: 'Giữ độ ẩm hạt dưới 12% làm hô hấp giảm tối thiểu, bảo quản lâu.' },
-                    { id: 14, text: 'Câu 14: Tại sao khi khoai tây hoặc củ cải để trong kho kín lâu ngày thường bị thối hỏng và sinh nhiệt mạnh?', options: ['A. Do hô hấp mạnh sinh ra nhiệt và nước làm ẩm mốc, thiếu O2 gây lên men thối.', 'B. Do chúng quang hợp quá nhiều ban đêm.', 'C. Do bị nhiễm khuẩn từ lá cây.', 'D. Do rễ cây tiếp tục mọc mầm.'], correct: 0, explain: 'Củ hô hấp mạnh trong kho kín tiêu hao chất hữu cơ, sinh nhiệt và nước.' },
-                    { id: 15, text: 'Câu 15: Ứng dụng của quá trình lên men lactic trong đời sống là gì?', options: ['A. Muối chua rau củ quả (dưa, cà, kim chi) và sản xuất sữa chua.', 'B. Nấu rượu bia và làm bánh mì.', 'C. Sản xuất xăng sinh học.', 'D. Xử lý nước thải công nghiệp.'], correct: 0, explain: 'Lên men lactic ứng dụng muối chua rau củ và sữa chua.' },
-                    { id: 16, text: 'Câu 16: Ứng dụng của quá trình lên men alcoholic (lên men rượu) là gì?', options: ['A. Sản xuất rượu, bia và làm nở bánh mì.', 'B. Làm giấm ăn.', 'C. Bảo quản rau tươi.', 'D. Sản xuất thuốc kháng sinh.'], correct: 0, explain: 'Lên men rượu tạo cồn và CO2 làm nở bánh mì.' },
-                    { id: 17, text: 'Câu 17: Cường độ hô hấp của hạt đang nảy mầm so với hạt khô ở trạng thái ngủ nghỉ có đặc điểm gì?', options: ['A. Cao hơn rất nhiều lần.', 'B. Thấp hơn.', 'C. Bằng nhau.', 'D. Bằng không vì hạt chưa hoạt động.'], correct: 0, explain: 'Hạt nảy mầm cần năng lượng cao nên hô hấp cực kỳ mạnh.' },
-                    { id: 18, text: 'Câu 18: Tác dụng của việc bảo quản nông sản ở nhiệt độ lạnh (trong kho lạnh hoặc tủ lạnh) là gì?', options: ['A. Làm giảm cường độ hô hấp của nông sản xuống mức tối thiểu, kéo dài thời gian bảo quản.', 'B. Tiêu diệt toàn bộ vi sinh vật gây bệnh.', 'C. Tăng hàm lượng đường trong củ quả.', 'D. Giúp rau quả chín nhanh hơn.'], correct: 0, explain: 'Nhiệt độ thấp ức chế enzyme hô hấp, giữ chất lượng nông sản lâu dài.' },
-                    { id: 19, text: 'Câu 19: Trong các biện pháp bảo quản nông sản sau đây, biện pháp nào làm giảm tối đa lượng nước của hạt?', options: ['A. Phương pháp phơi khô hoặc sấy khô.', 'B. Phương pháp bảo quản lạnh.', 'C. Phương pháp hút chân không.', 'D. Phương pháp ngâm nước muối.'], correct: 0, explain: 'Phơi sấy khô giảm lượng nước tự do trong hạt.' },
-                    { id: 20, text: 'Câu 20: Khi nói về mối quan hệ giữa hô hấp và nhiệt độ, phát biểu nào sau đây đúng?', options: ['A. Khi nhiệt độ tăng từ 0°C đến nhiệt độ tối ưu, cường độ hô hấp tăng nhanh.', 'B. Nhiệt độ càng cao thì hô hấp càng tăng mà không có giới hạn.', 'C. Hô hấp không phụ thuộc vào nhiệt độ môi trường.', 'D. Ở 50°C, hô hấp đạt giá trị cực đại.'], correct: 0, explain: 'Hô hấp tăng theo nhiệt độ đến ngưỡng tối ưu (30-35°C), sau đó giảm do biến tính enzyme.' },
-                    { id: 21, text: 'Câu 21: Sản phẩm cuối cùng của quá trình hô hấp hiếu khí được thải ra môi trường là gì?', options: ['A. CO2 và H2O.', 'B. Rượu ethyl.', 'C. Axit lactic.', 'D. Glucose và O2.'], correct: 0, explain: 'Hô hấp hiếu khí thải CO2 và H2O.' },
-                    { id: 22, text: 'Câu 22: Cơ chất chủ yếu được tế bào thực vật sử dụng trong hô hấp là gì?', options: ['A. Carbohydrate (đặc biệt là glucose).', 'B. Protein phức tạp.', 'C. Lipid bão hòa.', 'D. Khoáng đa lượng.'], correct: 0, explain: 'Glucose là cơ chất hô hấp phổ biến nhất.' },
-                    { id: 23, text: 'Câu 23: Trong điều kiện thiếu oxygen, quá trình hô hấp kị khí ở thực vật tạo ra sản phẩm phụ nào gây độc cho tế bào nếu tích lũy nhiều?', options: ['A. Rượu ethyl (C2H5OH) hoặc axit lactic.', 'B. Oxygen.', 'C. Nước cất.', 'D. Tinh bột.'], correct: 0, explain: 'Rượu tích lũy làm độc tế bào rễ.' },
-                    { id: 24, text: 'Câu 24: Tại sao người ta không nên đóng kín cửa phòng khi ngủ trong phòng có bật lò sưởi than hoặc để quá nhiều hoa tươi vào ban đêm?', options: ['A. Vì hô hấp của than/hoa tiêu thụ nhiều O2 và thải nhiều CO2 gây ngạt thở.', 'B. Vì hoa tươi thải ra khí độc vào ban đêm.', 'C. Vì lò sưởi hút hết độ ẩm trong phòng.', 'D. Vì ánh sáng đèn làm hại mắt.'], correct: 0, explain: 'Hô hấp tiêu thụ O2 và thải CO2 gây nguy hiểm trong phòng kín.' },
-                    { id: 25, text: 'Câu 25: Vai trò nào dưới đây không phải của quá trình hô hấp ở thực vật?', options: ['A. Tổng hợp chất hữu cơ từ các chất vô cơ đơn giản.', 'B. Giải phóng năng lượng ATP cung cấp cho các hoạt động sống.', 'C. Tạo ra nhiệt năng duy trì thân nhiệt ở mức phù hợp.', 'D. Tổng hợp các sản phẩm trung gian cho quá trình tổng hợp chất khác.'], correct: 0, explain: 'Hô hấp là phân giải chất hữu cơ, không phải tổng hợp.' },
-                    { id: 26, text: 'Câu 26: Hiện tượng nảy mầm của hạt trong điều kiện thiếu không khí sẽ dẫn đến kết quả gì cho mầm cây?', options: ['A. Mầm cây bị chết ngạt hoặc sinh trưởng yếu do thiếu năng lượng và tích lũy chất độc.', 'B. Mầm cây phát triển cực kỳ nhanh chóng.', 'C. Hạt chuyển sang cơ chế quang hợp ngay dưới lòng đất.', 'D. Hạt không thay đổi trạng thái.'], correct: 0, explain: 'Thiếu không khí hạt lên men kị khí sinh rượu làm chết mầm.' },
-                    { id: 27, text: 'Câu 27: Mối quan hệ giữa hô hấp và nồng độ CO2 trong bảo quản nông sản là gì?', options: ['A. Nồng độ CO2 cao sẽ ức chế quá trình hô hấp, giúp kéo dài thời gian bảo quản nông sản.', 'B. Nồng độ CO2 cao kích thích hô hấp hoạt động mạnh hơn.', 'C. CO2 không làm ảnh hưởng đến hô hấp.', 'D. CO2 làm hỏng hạt ngay lập tức.'], correct: 0, explain: 'CO2 nồng độ cao ức chế hô hấp, ứng dụng trong kho khí quyển điều chỉnh CA.' }
+                    { id: 1, text: 'Câu 1: Hô hấp ở thực vật là', options: ['A. quá trình phân giải các hợp chất hữu cơ thành các chất vô cơ đơn giản đồng thời giải phóng năng lượng dưới dạng ATP.', 'B. quá trình phân giải các hợp chất vô cơ thành các chất hữu cơ đồng thời giải phóng năng lượng dưới dạng ATP.', 'C. quá trình phân giải các hợp chất vô cơ thành các chất hữu cơ đồng thời giải phóng năng lượng dưới dạng nhiệt.', 'D. quá trình tổng hợp các hợp chất hữu cơ từ các chất vô cơ đơn giản đồng thời tích lũy năng lượng ATP.'], correct: 0, explain: 'Hô hấp phân giải chất hữu cơ thành vô cơ giải phóng ATP.' },
+                    { id: 2, text: 'Câu 2: Nguyên liệu của quá trình hô hấp ở thực vật là:', options: ['A. CO2 ; H2O ; Q(ATP+ nhiệt)', 'B. C6H12O6 và O2', 'C. CO2 và O2', 'D. H2O; O2 và Q(ATP và nhiệt)'], correct: 1, explain: 'Nguyên liệu là Glucose C6H12O6 và Oxygen O2.' },
+                    { id: 3, text: 'Câu 3: Sản phẩm của quá trình hô hấp ở thực vật là:', options: ['A. CO2 ; H2O ; Q(ATP+ nhiệt)', 'B. C6H12O6 và O2', 'C. CO2 và O2', 'D. H2O; O2 và Q(ATP và nhiệt)'], correct: 0, explain: 'Sản phẩm gồm CO2, H2O và Năng lượng (ATP + nhiệt).' },
+                    { id: 4, text: 'Câu 4: Quá trình phân giải các hợp chất hữu cơ thành các chất vô cơ đơn giản đồng thời giải phóng năng lượng dưới dạng ATP cung cấp cho các hoạt động sống của thực vật được gọi là', options: ['A. quang hợp ở thực vật.', 'B. phân giải hiếu khí ở thực vật.', 'C. hô hấp ở thực vật.', 'D. quá trình lên men ở thực vật.'], correct: 2, explain: 'Định nghĩa chuẩn của hô hấp ở thực vật.' },
+                    { id: 5, text: 'Câu 5: Hô hấp ở thực vật có vai trò', options: ['A. cung cấp năng lượng cần thiết cho các hoạt động sống của tế bào, cơ thể.', 'B. cung cấp O2 giúp điều hòa không khí và năng lượng nhiệt giúp ổn định nhiệt độ cơ thể.', 'C. cung cấp sản phẩm trung gian, đồng thời giải phóng CO2 giúp khử độc cho cơ thể.', 'D. hấp thu CO2, giải phóng O2 giúp điều hòa không khí.'], correct: 0, explain: 'Vai trò cốt lõi là duy trì và cung cấp năng lượng ATP cho các hoạt động sống.' },
+                    { id: 6, text: 'Câu 6: Hô hấp ở thực vật có vai trò cung cấp năng lượng cần thiết cho các hoạt động sống của tế bào, cơ thể như', options: ['A. duy trì nhiệt độ thuận lợi cho các hoạt động sống.', 'B. sinh tổng hợp các chất hữu cơ, vận chuyển và trao đổi các chất.', 'C. giúp thực vật có khả năng chịu lạnh.', 'D. giúp bay hơi một số hợp chất dẫn dụ côn trùng tham gia quá trình thụ phấn.'], correct: 1, explain: 'ATP được dùng để tổng hợp chất, vận chuyển chủ động khoáng...' },
+                    { id: 7, text: 'Câu 7: Ý nào dưới đây không phải là vai trò của hô hấp ở thực vật?', options: ['A. cung cấp năng lượng cần thiết cho các hoạt động sống của tế bào, cơ thể.', 'B. giúp thực vật duy trì nhiệt độ thuận lợi cho các hoạt động sống của cơ thể.', 'C. cung cấp nguyên liệu để tổng hợp các chất hữu cơ khác trong cơ thể.', 'D. hấp thu CO2, giải phóng O2 giúp điều hòa không khí.'], correct: 3, explain: 'D là vai trò của quang hợp, không phải hô hấp.' },
+                    { id: 8, text: 'Câu 8: Ở thực vật, hình thức hô hấp chủ yếu là', options: ['A. hô hấp kị khí.', 'B. phân giải kị khí.', 'C. hô hấp hiếu khí.', 'D. lên men.'], correct: 2, explain: 'Hô hấp hiếu khí là hình thức chủ yếu cung cấp nhiều ATP nhất.' },
+                    { id: 9, text: 'Câu 9: Ở thực vật, cơ quan hô hấp hiếu khí mạnh nhất diễn ra ở đâu?', options: ['A. Rễ', 'B. Thân', 'C. Lá', 'D. Cành'], correct: 2, explain: 'Lá là cơ quan có hoạt động sinh lý cực kỳ mạnh mẽ.' },
+                    { id: 10, text: 'Câu 10: Quá trình hô hấp ở thực vật diễn ra theo mấy con đường?', options: ['A. 1', 'B. 2', 'C. 3', 'D. 4'], correct: 1, explain: 'Gồm 2 con đường: Hô hấp hiếu khí và Phân giải kị khí (Lên men).' },
+                    { id: 11, text: 'Câu 11: Khi không có oxy phân tử ở thực vật diễn ra', options: ['A. phân giải hiếu khí.', 'B. phân giải kị khí.', 'C. lên men và chuỗi truyền electron hô hấp.', 'D. oxy hóa pyruvic acid và chu trình Kresb.'], correct: 1, explain: 'Thiếu O2 tế bào chuyển sang phân giải kị khí (lên men).' },
+                    { id: 12, text: 'Câu 12: Quá trình phân giải hiếu khí gồm', options: ['A. đường phân và lên men.', 'B. đường phân và hô hấp hiếu khí.', 'C. đường phân và oxy hóa pyruvic acid.', 'D. đường phân và chuỗi truyền electron hô hấp.'], correct: 1, explain: 'Phân giải hiếu khí gồm đường phân và hô hấp hiếu khí (chu trình Krebs & chuỗi chuyền e).' },
+                    { id: 13, text: 'Câu 13: Giai đoạn đường phân diễn ra ở đâu?', options: ['A. Tế bào chất.', 'B. Chất nền ti thể.', 'C. Màng trong ti thể.', 'D. Trong ti thể.'], correct: 0, explain: 'Đường phân xảy ra trong tế bào chất.' },
+                    { id: 14, text: 'Câu 14: Giai đoạn chu trình Kresb diễn ra ở đâu?', options: ['A. Tế bào chất.', 'B. Chất nền ti thể.', 'C. Màng trong ti thể.', 'D. Trong ti thể.'], correct: 1, explain: 'Chu trình Krebs diễn ra trong chất nền (matrix) ti thể.' },
+                    { id: 15, text: 'Câu 15: Giai đoạn chuỗi truyền electron hô hấp diễn ra ở đâu?', options: ['A. Tế bào chất.', 'B. Chất nền ti thể.', 'C. Màng trong ti thể.', 'D. Trong ti thể.'], correct: 2, explain: 'Chuỗi chuyền electron nằm trên màng trong ti thể.' },
+                    { id: 16, text: 'Câu 16: Khi phân giải 1 phân tử Glucose, qua giai đoạn đường phân tạo mấy phân tử ATP?', options: ['A. 1', 'B. 2', 'C. 3', 'D. 4'], correct: 1, explain: 'Đường phân thu net 2 ATP.' },
+                    { id: 17, text: 'Câu 17: Kết thúc phân giải hiếu khí, 1 phân tử glucose bị phân giải tạo bao nhiêu ATP?', options: ['A. 26 - 28', 'B. 28 - 30', 'C. 30 - 32', 'D. 36 - 38'], correct: 3, explain: 'Phân giải hiếu khí hoàn toàn tạo 36 - 38 ATP.' },
+                    { id: 18, text: 'Câu 18: Trong chu trình Krebs, 2 phân tử acetyl-CoA bị oxi hóa thu được sản phẩm là:', options: ['A. 8 NADH và 2FADH2', 'B. 2 ATP và 8 NADH', 'C. 2ATP; 6 NADH và 2 FADH2', 'D. 6NADH và 2FADH2'], correct: 2, explain: 'Chu trình Krebs tạo 2 ATP, 6 NADH, 2 FADH2.' },
+                    { id: 19, text: 'Câu 19: Khi nói về các nhân tố ảnh hưởng đến hô hấp ở thực vật ý nào sau đây không đúng?', options: ['A. Cường độ hô hấp ở hạt tăng 4-5 lần khi độ ẩm hạt tăng 14-15%.', 'B. Nhiệt độ tối ưu cho quá trình hô hấp trong khoảng 30-35oC.', 'C. Nồng độ O2 trong không khí thuận lợi cho quá trình hô hấp khoảng 21%.', 'D. Nồng độ CO2 trong không khí thuận lợi cho quá trình hô hấp là 0,01%.'], correct: 3, explain: 'D sai vì nồng độ CO2 thuận lợi bình thường là 0.03%.' },
+                    { id: 20, text: 'Câu 20: Tại sao nồng độ O2 trong không khí lại ảnh hưởng đến quá trình hô hấp ở thực vật?', options: ['A. Vì O2 là nguyên liệu của quá trình hô hấp, tham gia vào quá trình oxi hóa các chất hữu cơ.', 'B. Vì O2 là phân tử dễ hòa tan trong nước nên giúp cây có thể hô hấp khi ở trong môi trường nước.', 'C. Vì O2 là chất nhận electron đầu tiên của chuỗi chuyền electron hô hấp trong hô hấp hiếu khí.', 'D. Vì O2 là sản phẩm của quá trình hô hấp, tham gia vào quá trình oxi hóa các chất hữu cơ.'], correct: 0, explain: 'O2 là nguyên liệu trực tiếp oxy hóa các hợp chất hữu cơ.' },
+                    { id: 21, text: 'Câu 21: Tại sao khi nhiệt độ môi trường tăng cao (trên 55oC) thì hô hấp không diễn ra?', options: ['A. Vì do nhiệt độ cao ảnh hưởng đến quá trình tạo sản phẩm của quá trình hô hấp.', 'B. Vì do nhiệt độ cao làm mất hoạt tính của enzym hô hấp.', 'C. Vì nhiệt độ cao ảnh hưởng đến quá trình oxi hóa các chất hữu cơ trong cơ thể.', 'D. Vì do nhiệt độ cao sẽ làm cường độ hô hấp tăng ảnh hưởng đến chất lượng của hạt, quả.'], correct: 1, explain: 'Nhiệt độ trên 55oC làm enzyme hô hấp bị biến tính mất hoạt tính.' },
+                    { id: 22, text: 'Câu 22: Khi nồng độ CO2 trong không khí tăng cao sẽ', options: ['A. làm tăng quá trình hô hấp ở thực vật.', 'B. gây ảnh hưởng đến quá trình quang hợp.', 'C. gây ức chế quá trình quang hợp ở thực vật.', 'D. gây ức chế quá trình hô hấp ở thực vật.'], correct: 3, explain: 'Nồng độ CO2 tăng cao ức chế quá trình hô hấp.' },
+                    { id: 23, text: 'Câu 23: Tại sao một số loài thực vật sống trong môi trường luôn thiếu O2 nhưng cây vẫn hô hấp bình thường?', options: ['A. Thực vật có nhiều cơ chế giúp cây thích nghi với điều kiện thiếu O2.', 'B. Thực vật có lá hình thành các túi khí để dự trữ O2 cung cấp cho rễ.', 'C. Thực vật có mạng lưới mô khí thông từ lá đến rễ hình thành con đường thông khí liên tục.', 'D. Thực vật có hệ rễ khí sinh nhô ra khỏi mặt nước để lấy O2 từ không khí.'], correct: 2, explain: 'Có mạng lưới mô khí thông từ lá xuống rễ cung cấp O2.' },
+                    { id: 24, text: 'Câu 24: Tại sao biện pháp bảo quản lạnh có tác dụng ngăn chặn sự phát triển của vi sinh vật gây hại cho nông sản?', options: ['A. Làm biến tính các enzyme của nông sản từ đó ngăn chặn sự phát triển của vi sinh vật.', 'B. Làm ảnh hưởng tốc độ phản ứng sinh hóa trong tế bào của nông sản.', 'C. Làm biến tính các loại protein, axit nucleic từ đó ngăn chặn sự phát triển của vi sinh vật.', 'D. Làm chậm lại quá trình sinh lý, sinh hóa và trao đổi chất của sản phẩm giúp giảm hàm lượng chất hữu cơ.'], correct: 3, explain: 'Làm chậm các phản ứng sinh hóa và hô hấp giảm tiêu hao chất hữu cơ.' },
+                    { id: 25, text: 'Câu 25: Tại sao trong bảo quản hạt và nông sản người ta lại sử dụng phương pháp làm giảm cường độ hô hấp đến mức tối thiểu?', options: ['A. Vì hô hấp làm tăng thời gian bảo quản hạt và nông sản.', 'B. Vì hô hấp làm giảm hàm lượng chất hữu cơ trong cơ thể thực vật.', 'C. Vì hô hấp giúp tạo năng lượng cung cấp cho các hoạt động của cơ thể thực vật.', 'D. Vì hô hấp tạo nhiệt nên duy trì được nhiệt độ thuận lợi trong quá trình bảo quản.'], correct: 1, explain: 'Hô hấp làm tiêu hao chất hữu cơ làm sụt giảm chất lượng nông sản.' },
+                    { id: 26, text: 'Câu 26: Rau, củ, quả được bảo quản trong ngăn mát sẽ tươi lâu hơn, lý do nào sau đây SAI?', options: ['A. Giảm nhiệt độ của thực phẩm, làm chậm lại quá trình sinh lý, sinh hóa và trao đổi chất của sản phẩm.', 'B. Khi nhiệt độ giảm sẽ dẫn đến tăng cường hô hấp do đó làm giảm chất lượng rau, củ, quả.', 'C. Khi nhiệt độ giảm ảnh hưởng đến hoạt tính của enzyme, hô hấp không diễn ra.', 'D. Nhiệt độ lạnh thực phẩm hạn chế quá trình hô hấp nên không ít ảnh hưởng đến chất lượng sản phẩm.'], correct: 1, explain: 'B sai vì nhiệt độ giảm làm GIẢM hô hấp, không phải tăng hô hấp.' },
+                    { id: 27, text: 'Câu 27: Chúng ta thường thấy rau trong siêu thị được bảo quản trong túi nylon đục lỗ và để trong tủ mát, cơ sở khoa học của việc làm này là:', options: ['A. để giảm sự mất nước của rau, không làm cho rau héo.', 'B. để tăng sự thoát hơi nước của rau, giữ cho rau tươi lâu.', 'C. để tăng quá trình hô hấp của rau, giúp rau bảo quản được lâu hơn.', 'D. để tăng quá trình hô hấp của rau giúp rau không bị mất nước.'], correct: 0, explain: 'Túi nilon đục lỗ giúp giữ ẩm tránh mất nước héo lá nhưng vẫn thoát khí nhẹ.' }
                 ]
             }
         };
 
-        // --- 2. APP STATE MANAGEMENT ---
+        // --- APP STATE ---
         let currentScreen = 'home-screen';
-        let currentLessonId = null;
-        let currentPracticeTab = 'quiz'; // 'theory' or 'quiz'
+        let currentLessonId = 'bai1';
+        let currentPracticeQuestions = [];
         let currentExamQuestions = [];
-        let userAnswers = {}; // Lưu đáp án người dùng chọn: key = question index/id, value = selected option index or input value
+        let userAnswers = {};
 
-        // --- 3. NAVIGATION & SCREEN SWITCHING ---
         function showScreen(screenId) {
             document.getElementById('home-screen').classList.add('hidden');
             document.getElementById('practice-screen').classList.add('hidden');
@@ -647,11 +731,9 @@
         }
 
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
-        // --- 4. PRACTICE MODE LOGIC ---
         function selectLesson(lessonId) {
             currentLessonId = lessonId;
             const lesson = LESSONS_DATA[lessonId];
@@ -660,18 +742,23 @@
             document.getElementById('practice-lesson-tag').innerText = `BÀI ÔN TẬP`;
             document.getElementById('practice-title').innerText = lesson.title;
 
-            // Check if lesson has theory (Bài 4 & Bài 6)
             const theoryBtn = document.getElementById('tab-theory-btn');
             if (lessonId === 'bai4' || lessonId === 'bai6') {
                 theoryBtn.classList.remove('hidden');
-                switchPracticeTab('quiz'); // Mặc định vào trắc nghiệm hoặc lý thuyết tùy bạn
             } else {
                 theoryBtn.classList.add('hidden');
-                switchPracticeTab('quiz');
             }
 
-            renderPracticeQuiz(lesson.questions);
+            currentPracticeQuestions = JSON.parse(JSON.stringify(lesson.questions));
+            switchPracticeTab('quiz');
             showScreen('practice-screen');
+        }
+
+        function shuffleCurrentPractice() {
+            if (currentPracticeQuestions.length > 0) {
+                currentPracticeQuestions.sort(() => Math.random() - 0.5);
+                renderPracticeQuiz(currentPracticeQuestions);
+            }
         }
 
         function startPracticeMode() {
@@ -679,7 +766,6 @@
         }
 
         function switchPracticeTab(tab) {
-            currentPracticeTab = tab;
             const theoryContainer = document.getElementById('practice-theory-container');
             const quizContainer = document.getElementById('practice-quiz-container');
             const theoryBtn = document.getElementById('tab-theory-btn');
@@ -698,6 +784,7 @@
                 if (theoryBtn) {
                     theoryBtn.className = 'px-4 py-2 rounded-xl text-sm font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all';
                 }
+                renderPracticeQuiz(currentPracticeQuestions);
             }
         }
 
@@ -707,25 +794,23 @@
                 container.innerHTML = `
                     <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-6">
                         <h3 class="text-xl font-bold text-emerald-400"><i class="fa-solid fa-pen-to-square mr-2"></i>Lý Thuyết Điền Từ: Quang Hợp Ở Thực Vật</h3>
-                        <p class="text-slate-300 text-sm">Điền các thuật ngữ chính xác vào ô trống để hoàn thiện kiến thức trọng tâm:</p>
-                        
                         <div class="space-y-4 text-slate-200 leading-relaxed bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-                            <p>1. Quang hợp là quá trình lục lạp hấp thụ và sử dụng năng lượng <input type="text" data-theory="bai4-1" placeholder="nhập từ..." class="fill-input"> để tổng hợp các chất hữu cơ từ <input type="text" data-theory="bai4-2" placeholder="nhập từ..." class="fill-input"> và nước, đồng thời giải phóng khí oxygen.</p>
-                            <p>2. Pha sáng diễn ra trên màng <input type="text" data-theory="bai4-3" placeholder="nhập từ..." class="fill-input"> của lục lạp, chuyển hóa quang năng thành hóa năng trong <input type="text" data-theory="bai4-4" placeholder="nhập từ..." class="fill-input"> và NADPH.</p>
-                            <p>3. Pha tối (chu trình <input type="text" data-theory="bai4-5" placeholder="nhập từ..." class="fill-input">) diễn ra trong chất nền <input type="text" data-theory="bai4-6" placeholder="nhập từ..." class="fill-input"> của lục lạp.</p>
+                            <p>1. Quang hợp là quá trình lục lạp hấp thụ và sử dụng năng lượng <input type="text" class="fill-input" placeholder="ánh sáng"> để tổng hợp chất hữu cơ từ CO2 và nước, giải phóng <input type="text" class="fill-input" placeholder="oxygen (O2)">.</p>
+                            <p>2. Phương trình: 6 CO2 + 12 H2O → C6H12O6 + 6 O2 + 6 H2O</p>
+                            <p>3. Hệ sắc tố gồm <input type="text" class="fill-input" placeholder="Chlorophyll"> và <input type="text" class="fill-input" placeholder="Carotenoid">. Chlorophyll a ở trung tâm phản ứng trực tiếp chuyển hóa quang năng thành hóa năng trong ATP và NADPH.</p>
+                            <p>4. Pha sáng diễn ra tại màng <input type="text" class="fill-input" placeholder="thylakoid">. Pha tối (chu trình <input type="text" class="fill-input" placeholder="Calvin">) diễn ra tại chất nền <input type="text" class="fill-input" placeholder="stroma">.</p>
                         </div>
                     </div>
                 `;
             } else if (lessonId === 'bai6') {
                 container.innerHTML = `
                     <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-6">
-                        <h3 class="text-xl font-bold text-emerald-400"><i class="fa-solid fa-pen-to-square mr-2"></i>Lý Thuyết Điền Từ: Hô Hấp Ở Thực Vật</h3>
-                        <p class="text-slate-300 text-sm">Điền các thuật ngữ chính xác vào ô trống:</p>
-                        
-                        <div class="space-y-4 text-slate-200 leading-relaxed bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-                            <p>1. Hô hấp ở thực vật là quá trình oxy hóa sinh học các hợp chất hữu cơ thành <input type="text" data-theory="bai6-1" placeholder="nhập từ..." class="fill-input"> và <input type="text" data-theory="bai6-2" placeholder="nhập từ..." class="fill-input"> kèm theo giải phóng năng lượng.</p>
-                            <p>2. Giai đoạn đường phân diễn ra ở <input type="text" data-theory="bai6-3" placeholder="nhập từ..." class="fill-input"> và không cần oxygen.</p>
-                            <p>3. Bào quan đóng vai trò chủ đạo trong hô hấp hiếu khí là <input type="text" data-theory="bai6-4" placeholder="nhập từ..." class="fill-input">.</p>
+                        <h3 class="text-xl font-bold text-emerald-400"><i class="fa-solid fa-pen-to-square mr-2"></i>Lý Thuyết Điền Từ & Mối Quan Hệ QH - HH</h3>
+                        ${getSvgImage('moi-quan-he-qh-hh')}
+                        <div class="space-y-4 text-slate-200 leading-relaxed bg-slate-900/60 p-6 rounded-xl border border-slate-800 mt-4">
+                            <p>1. Hô hấp phân giải hợp chất hữu cơ thành <input type="text" class="fill-input" placeholder="CO2 và H2O"> đồng thời giải phóng năng lượng dưới dạng <input type="text" class="fill-input" placeholder="ATP">.</p>
+                            <p>2. Hô hấp hiếu khí gồm: Đường phân (tế bào chất) → Oxy hóa Pyruvate & Chu trình <input type="text" class="fill-input" placeholder="Krebs"> (chất nền ti thể) → Chuỗi chuyền electron (màng trong ti thể).</p>
+                            <p>3. Sản phẩm của Quang hợp là <input type="text" class="fill-input" placeholder="Glucose và O2"> nguồn nguyên liệu trực tiếp cho Hô hấp.</p>
                         </div>
                     </div>
                 `;
@@ -738,11 +823,13 @@
             userAnswers = {};
 
             questions.forEach((q, index) => {
+                const imgHtml = q.imgType ? getSvgImage(q.imgType) : '';
                 html += `
                     <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4 question-card" data-qindex="${index}" data-correct="${q.correct}">
                         <h4 class="text-lg font-bold text-white flex items-start">
-                            <span class="text-emerald-400 mr-2">Cơ bản #${index + 1}:</span> ${q.text}
+                            <span class="text-emerald-400 mr-2">Câu #${index + 1}:</span> ${q.text}
                         </h4>
+                        ${imgHtml}
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 `;
 
@@ -776,16 +863,13 @@
             userAnswers[qIndex] = optIndex;
         }
 
-        // --- 5. MOCK EXAM MODE LOGIC ---
         function startMockExam() {
-            // Tổng hợp toàn bộ câu hỏi từ tất cả các bài
             let allQuestions = [];
             Object.values(LESSONS_DATA).forEach(lesson => {
                 allQuestions = allQuestions.concat(lesson.questions);
             });
 
-            // Xáo trộn ngẫu nhiên câu hỏi (Shuffle)
-            currentExamQuestions = allQuestions.sort(() => Math.random() - 0.5);
+            currentExamQuestions = JSON.parse(JSON.stringify(allQuestions)).sort(() => Math.random() - 0.5);
             userAnswers = {};
 
             document.getElementById('exam-total-count').innerText = currentExamQuestions.length;
@@ -798,18 +882,20 @@
             let html = '';
 
             currentExamQuestions.forEach((q, index) => {
+                const imgHtml = q.imgType ? getSvgImage(q.imgType) : '';
                 html += `
                     <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4 exam-card" data-index="${index}" data-correct="${q.correct}">
                         <div class="flex items-center justify-between">
                             <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800">Câu ${index + 1}</span>
                         </div>
                         <h4 class="text-lg font-bold text-white">${q.text}</h4>
+                        ${imgHtml}
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 `;
 
                 q.options.forEach((opt, optIndex) => {
                     html += `
-                        <button onclick="selectExamOption(this, ${index}, ${optIndex})" class="exam-option-btn-${index} option-btn text-left p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 text-sm text-slate-200 font-medium" data-opt="${optIndex}">
+                        <button onclick="selectExamOption(this, ${index}, ${optIndex})" class="exam-option-btn-${index} option-btn text-left p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 text-sm text-slate-200 font-medium">
                             ${opt}
                         </button>
                     `;
@@ -845,13 +931,11 @@
             document.getElementById('exam-progress').style.width = percent + '%';
         }
 
-        // --- 6. SUBMIT & GRADING LOGIC (CHỈ CHẤM KHI BẤM NỘP BÀI) ---
         function submitPractice() {
-            const lesson = LESSONS_DATA[currentLessonId];
             let correctCount = 0;
-            let total = lesson.questions.length;
+            let total = currentPracticeQuestions.length;
 
-            lesson.questions.forEach((q, index) => {
+            currentPracticeQuestions.forEach((q, index) => {
                 const selectedCard = document.querySelector(`.question-card[data-qindex="${index}"]`);
                 if (!selectedCard) return;
                 const buttons = selectedCard.getElementsByClassName('option-btn');
@@ -922,14 +1006,12 @@
         }
 
         function reviewExamAnswers() {
-            // Quay lại màn hình thi hoặc luyện tập để xem giải thích chi tiết đã hiện sẵn
             if (currentScreen === 'result-screen') {
                 document.getElementById('result-screen').classList.add('hidden');
                 document.getElementById('exam-screen').classList.remove('hidden');
             }
         }
 
-        // --- 7. AMBIENT BUBBLES GENERATION ---
         function createBubbles() {
             const container = document.getElementById('bubble-container');
             const bubbleCount = 15;
